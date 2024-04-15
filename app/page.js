@@ -3,7 +3,9 @@
 import {useState} from "react";
 import React from 'react';
 import Navbar from "/components/Navbar";
-// import {HamburgerMenu} from "@/components/HamburgerMenu";
+import { TbSearch } from "react-icons/tb";
+import { AiOutlineHeart } from "react-icons/ai";
+import { SlBasket } from "react-icons/sl";
 const colors = ["grey", "grey", "grey"];
 const delay = 5000;
 export default function Home() {
@@ -33,17 +35,21 @@ export default function Home() {
         };
     }, [index]);
     return (
-        <div>
-            {/*<HamburgerMenu isOpen={isOpen} onClick={toggleMenu}/>*/}
+        <div className='MainPage'>
             <div className="slideshow">
-                <div className="text">comfort zone</div>
                 <Navbar/>
+                <div className="text">comfort zone</div>
+                <div className='button'>
+                <TbSearch size={27} />
+                <AiOutlineHeart size={30}/>
+                <SlBasket size={28}/>
+            </div>
+            </div>
                 <div className="slideshowSlider" style={{transform: `translate3d(${-index * 100}%, 0, 0)`}}>
-                    <img src={"/слайд-шоу 1.png"} style={{ width: '100%', height:"100%" }} alt="" />
+                    <img src={"/слайд шоу 1.png"} style={{ width: '100%', height:"100%" }} alt="" />
                     <img src={"/слайд шоу 2.png"} style={{ width: "100%", height:'100%' }} alt="" />
                     <img src={"/слайд шоу 3.png"} style={{ width: '100%', height:'100%' }} alt="" />
                 </div>
-            </div>
             <div className="slideshowDots">
                 {colors.map((color, idx) => (
                     <div key={idx}

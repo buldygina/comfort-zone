@@ -1,7 +1,23 @@
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+
 .slideshow {
   margin: auto;
   overflow: hidden;
   max-width: 100vw;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 2fr 1fr;
+  padding-inline: 20px;
+}
+.button {
+  display: flex;
+  flex-direction: row;
+  gap: 60px;
+  justify-self: end;
 }
 .slideshowSlider {
   white-space: nowrap;
@@ -37,6 +53,9 @@
   font-size: 35px;
   color: #000000;
   font-style: medium;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  flex-grow: 1;
   text-align: center;
 }
 .hamburger-icon {
@@ -73,4 +92,7 @@
 .open {
   opacity: 1;
   /*pointer-events: auto;*/
+}
+.MainPage{
+  background-color: #F0F0F0;
 }

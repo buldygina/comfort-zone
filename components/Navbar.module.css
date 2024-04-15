@@ -1,29 +1,26 @@
-.link a {
+.link  {
     text-decoration: none;
 }
-.header {
-    width: 100%;
-}
 .menu {
+    list-style-type: none;
     align-items: center;
     display: flex;
     font-size: 30px;
     gap: 30px;
+    margin: 0;
+}
+.link {
     font-family: Raleway;
     font-weight: Semibold;
+    color: black;
 }
 .mobile_btn{
-    display: none;
+    position: relative;
+    cursor: pointer;
+    z-index: 10;
+
 }
 @media (max-width: 1600px) {
-    .mobile_btn{
-        display: block;
-        position: absolute;
-        left: 20px;
-        cursor: pointer;
-        z-index: 10;
-        top:15px;
-    }
     .menu {
         display: flex;
         flex-direction: column;
