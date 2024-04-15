@@ -1,95 +1,64 @@
-import Image from "next/image";
-import styles from "./page.module.css";
-
+// eslint-disable-next-line @next/next/no-document-import-in-page
+'use client'
+import {useState} from "react";
+import React from 'react';
+import Navbar from "/components/Navbar";
+// import {HamburgerMenu} from "@/components/HamburgerMenu";
+const colors = ["grey", "grey", "grey"];
+const delay = 5000;
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
+    const [index, setIndex] = React.useState(0);
+    const timeoutRef = React.useRef(null);
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    }
+    function resetTimeout() {
+        if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current);
+        }
+    }
+    React.useEffect(() => {
+        resetTimeout();
+        timeoutRef.current = setTimeout(
+            () =>
+                setIndex((prevIndex) =>
+                    prevIndex === colors.length - 1 ? 0 : prevIndex + 1
+                ),
+            delay
+        );
+        return () => {
+            resetTimeout();
+        };
+    }, [index]);
+    return (
         <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+            {/*<HamburgerMenu isOpen={isOpen} onClick={toggleMenu}/>*/}
+            <div className="slideshow">
+                <div className="text">comfort zone</div>
+                <Navbar/>
+                <div className="slideshowSlider" style={{transform: `translate3d(${-index * 100}%, 0, 0)`}}>
+                    <img src={"/слайд-шоу 1.png"} style={{ width: '100%', height:"100%" }} alt="" />
+                    <img src={"/слайд шоу 2.png"} style={{ width: "100%", height:'100%' }} alt="" />
+                    <img src={"/слайд шоу 3.png"} style={{ width: '100%', height:'100%' }} alt="" />
+                </div>
+            </div>
+            <div className="slideshowDots">
+                {colors.map((color, idx) => (
+                    <div key={idx}
+                         className={`slideshowDot${index === idx ? " active" : ""}`}
+                         onClick={() => setIndex(idx)}
+                    />
+                ))}
+            </div>
+            <div className="buttonsMenu">
+                <img src={"/кнопка свечи.png"}  style={{width: "100%"}}  alt="" />
+                <img src={"/кнопка пледы.png"}  style={{width: "100%"}} alt="" />
+                <img src={"/кнопка кружки.png"} style={{width: "100%"}} alt="" />
+                <img src={"/кнопка подушки.png"} style={{width: "100%"}} alt="" />
+            </div>
         </div>
-      </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+    );
 }
