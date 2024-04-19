@@ -62,7 +62,22 @@ export default function Home() {
                 <img src={"/кнопка свечи.png"}  style={{width: "100%"}}  alt="" />
                 <img src={"/кнопка пледы.png"}  style={{width: "100%"}} alt="" />
                 <img src={"/кнопка кружки.png"} style={{width: "100%"}} alt="" />
-                <img src={"/кнопка подушки.png"} style={{width: "100%"}} alt="" />
+                <img src={"/кнопка подушки.png"} style={{width:"100%"}} alt="" />
+            </div>
+            <div className='buttonContainer'><div className='popularItems' > POPULAR ITEMS</div>
+            <button className='buttonSeeAll'><div className='seeAll'>SEE ALL</div></button></div>
+            <div className='items'>
+                <img src={"/1 товар.png"}  style={{width: "70%"}}  alt="" />
+                <img src={"/2 товар.png"}  style={{width: "70%"}}  alt="" />
+                <img src={"/3 товар.png"}  style={{width: "70%"}}  alt="" />
+            </div>
+            <div className='aboutUs'>
+                ABOUT US
+            </div>
+            <div className='photoAboutUs'>
+            <div className='textAboutUs'>Welcome to our cozy world! In our store, we've created the perfect space for those who value homey comfort and coziness. Here you'll find everything you need to make your home even cozier and the atmosphere around you even more pleasant. We believe that comfort doesn't have to be expensive. That's why we offer affordable prices on all our products, so everyone can create their own corner of comfort without breaking the bank. Join to the atmosphere of coziness with us!
+            </div>
+                <img src={"/карта метро.png"}  style={{width: "25%"}}  alt="" />
             </div>
         </div>
 
