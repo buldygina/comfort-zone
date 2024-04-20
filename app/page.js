@@ -65,19 +65,19 @@ export default function Home() {
                 <img src={"/кнопка подушки.png"} style={{width:"100%"}} alt="" />
             </div>
             <div className='buttonContainer'><div className='popularItems' > POPULAR ITEMS</div>
-            <button className='buttonSeeAll'><div className='seeAll'>SEE ALL</div></button></div>
+            <button className='buttonSeeAll'>SEE ALL</button></div>
             <div className='items'>
-                <img src={"/1 товар.png"}  style={{width: "70%"}}  alt="" />
-                <img src={"/2 товар.png"}  style={{width: "70%"}}  alt="" />
-                <img src={"/3 товар.png"}  style={{width: "70%"}}  alt="" />
+                <div style={{width: "70%"}}><img src={"/1 товар.png"}  style={{width: "100%"}}  alt="" /></div>
+                <div style={{width: "70%"}}><img src={"/2 товар.png"}  style={{width: "100%"}}  alt="" /></div>
+                <div style={{width: "70%"}}><img src={"/3 товар.png"}  style={{width: "100%"}}  alt="" /></div>
             </div>
             <div className='aboutUs'>
                 ABOUT US
             </div>
             <div className='photoAboutUs'>
-            <div className='textAboutUs'>Welcome to our cozy world! In our store, we've created the perfect space for those who value homey comfort and coziness. Here you'll find everything you need to make your home even cozier and the atmosphere around you even more pleasant. We believe that comfort doesn't have to be expensive. That's why we offer affordable prices on all our products, so everyone can create their own corner of comfort without breaking the bank. Join to the atmosphere of coziness with us!
+            <div className='textAboutUs'>Welcome to our cozy world! In our store, we've created the perfect space for those who value homey comfort and coziness. Here you'll find everything you need to make your home even cozier and the atmosphere around you even more pleasant. We believe that comfort doesn't have to be expensive. That's why we offer affordable prices on all our products, so everyone can create their own corner of comfort without breaking the bank. Step into our warm haven where comfort reigns supreme! At our store, we've curated a delightful collection to cater to those who cherish the snug embrace of home. Whether it's soft throws, inviting cushions, or ambient lighting, we've assembled all the essentials to elevate your living space into a sanctuary of serenity. We firmly believe that luxury shouldn't come with a hefty price tag. Hence, we strive to provide pocket-friendly prices on our entire range, ensuring that crafting your personal oasis remains within reach for all. Come, immerse yourself in the aura of coziness with us, and let's embark on a journey to transform your abode into a haven of tranquility and warmth!
             </div>
-                <img src={"/карта метро.png"}  style={{width: "25%"}}  alt="" />
+                <img src={"/карта метро.png"}  style={{width: "30%"}}  alt="" />
             </div>
         </div>
 
