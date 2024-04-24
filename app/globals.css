@@ -16,6 +16,7 @@
   background-color:#D8B388;
 }
 body {
+  min-height: 100vh;
   max-width: 100vw;
   overflow-x: hidden;
 }
@@ -41,7 +42,64 @@ body {
   padding-right: 100px;
   padding-left: 20px;
   padding-top: 50px;
-  gap: 450px;
+  gap: 230px;
+}
+.buttonItems {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+ padding-right: 20px;
+}
+.Items{
+  position: relative;
+}
+.cost{
+  padding-right: 75px;
+}
+.footer {
+  width: 100%;
+  height: 100px;
+  background: rgb(224, 224, 224);
+  margin-top: 70px;
+  position: relative;
+}
+.email {
+  position: absolute;
+  bottom: -12px;
+  right: 20px;
+  font-size: 20px;
+  color: #000000;
+  font-weight: lighter;
+}
+.footerText{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding-left: 20px;
+  font-size: 24px;
+  color: #000000;
+  font-weight: lighter;
+}
+.Good{
+  position: absolute;
+  bottom: 0;
+  z-index: 100;
+  height: 60px;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.4);
+  color: black;
+  font-family: Raleway;
+  font-size: 24px;
+  padding-left: 10px;
+  padding-top: 5px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0%;
+}
+.map {
+  width: 100%;
+  flex-grow: 1;
 }
 .textAboutUs {
   font-family: Raleway;

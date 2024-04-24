@@ -1,0 +1,16 @@
+.buttonback {
+    font-family: Raleway;
+    font-size: 25px;
+    color: #000000;
+    font-weight: bold;
+    margin-right: 10px;
+}
+.Back {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    top: 40px;
+    left: 65px;
+    padding: 20px;
+}
