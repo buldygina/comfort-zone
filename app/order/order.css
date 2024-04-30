@@ -22,3 +22,50 @@ body {
     gap: 600px;
     padding-left: 20px;
 }
+input {
+    width: 40%;
+    height: 30px;
+    border-radius: 25px;
+}
+.inputName {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-top: 40px;
+    font-family: Raleway;
+    font-size: 22px;
+    font-weight: lighter;
+}
+.inputEmail {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-top: 40px;
+    font-family: Raleway;
+    font-size: 22px;
+    font-weight: lighter;
+}
+.inputPhone {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-top: 40px;
+    font-family: Raleway;
+    font-size: 22px;
+    font-weight: lighter;
+}
+.delivery {
+    font-size: 30px;
+    font-family: Raleway;
+    padding-left: 20px;
+    padding-top: 40px;
+}
+.inputCity {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-top: 40px;
+    font-family: Raleway;
+    font-size: 22px;
+    font-weight: lighter;
+}
