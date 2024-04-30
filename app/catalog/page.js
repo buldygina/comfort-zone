@@ -70,7 +70,7 @@ export default function Catalog() {
                 </div>
                 <div className='Items' style={{width: "70%"}}><img src={"/6 свеча.png"} style={{width: "100%"}} alt=""/>
                     <div className='Good'>
-                        <div className='buttonItems'><p>CANDLE “WARM”</p>
+                        <div className='buttonItems'><p>CANDLE “SEASHELL”</p>
                             <div><AiOutlineHeart/><SlBasket/></div>
                         </div>
                     </div>
