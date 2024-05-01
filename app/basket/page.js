@@ -1,4 +1,3 @@
-'use client'
 import React from 'react';
 import '@/app/basket/basket.css'
 import {TbSearch} from "react-icons/tb";

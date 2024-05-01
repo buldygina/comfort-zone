@@ -130,5 +130,148 @@ input[type="radio"]:checked + label:after {
     display: flex;
     flex-direction: column;
     padding-left: 20px;
-    padding-top: 70px;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
+.receivingPoint {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-top: 60px;
+    font-family: Raleway;
+    font-size: 22px;
+    font-weight: lighter;
+}
+.recepient {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-top: 60px;
+    font-family: Raleway;
+    font-size: 22px;
+    font-weight: lighter;
+}
+.commentOrder {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-top: 60px;
+    font-family: Raleway;
+    font-size: 22px;
+    font-weight: lighter;
+}
+input[type="checkbox"]:checked,
+input[type="checkbox"]:not(:checked)
+{
+    position: absolute;
+    left: -9999px;
+}
+input[type="checkbox"]:checked + label,
+input[type="checkbox"]:not(:checked) + label
+{
+display: inline-block;
+position: relative;
+padding-left: 28px;
+line-height: 20px;
+cursor: pointer;
+}
+input[type="checkbox"]:checked + label:before,
+input[type="checkbox"]:not(:checked) + label:before
+{
+content: "";
+position: absolute;
+left: 0px;
+top: 0px;
+width: 18px;
+height: 18px;
+border: 1px solid #dddddd;
+background-color: #ffffff;
+}
+input[type="checkbox"]:checked + label:before,
+input[type="checkbox"]:not(:checked) + label:before {
+    border-radius: 2px;
+}
+input[type="checkbox"]:checked + label:after,
+input[type="checkbox"]:not(:checked) + label:after
+{
+    content: "";
+    position: absolute;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+input[type="checkbox"]:checked + label:after,
+input[type="checkbox"]:not(:checked) + label:after {
+    left: 3px;
+    top: 4px;
+    width: 10px;
+    height: 5px;
+    border-radius: 1px;
+    border-left: 4px solid #D8B388;
+    border-bottom: 4px solid #D8B388;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+input[type="checkbox"]:not(:checked) + label:after
+{
+    opacity: 0;
+}
+input[type="checkbox"]:checked + label:after
+{
+    opacity: 1;
+}
+.personalData p{
+    font-family: Raleway;
+    font-weight: lighter;
+}
+
+.textFirstOrder p {
+    font-family: Raleway;
+    font-size: 22px;
+    font-weight: bold;
+}
+.textSecondOrder p {
+    font-family: Raleway;
+    font-size: 22px;
+    font-weight: bold;
+}
+.OrderItems {
+    position: absolute;
+    top: 155px;
+    right: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+.textItemsOrder {
+    position: absolute;
+    top: 130px;
+    right: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 230px;
+}
+.quantityItems {
+    position: absolute;
+    top: 170px;
+    right: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 210px;
+}
+.totalcostOrders p{
+    font-family:Raleway;
+    font-size: 20px;
+}
+.totalcostOrders {
+    position: absolute;
+    top: 700px;
+    right: 300px;
+    display: flex;
+    flex-direction: column;
+}
+

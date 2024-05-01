@@ -14,6 +14,8 @@
     "@pbe/react-yandex-maps": "^1.2.5",
     "i": "^0.3.7",
     "next": "14.1.4",
+    "primeicons": "^7.0.0",
+    "primereact": "^10.6.4",
     "prop-types": "^15.8.1",
     "react": "^18",
     "react-dom": "^18",
