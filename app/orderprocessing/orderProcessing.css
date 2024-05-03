@@ -1,0 +1,30 @@
+.squareOrder {
+    background: rgb(224, 224, 224);
+    position: relative;
+    width: 100%;
+    height: 90px
+}
+.orderProccesing {
+    font-family: Raleway;
+    font-size: 25px;
+    font-weight: bold;
+}
+.textOrderProcessing {
+    display:flex;
+    align-items: center;
+    gap: 600px;
+    padding-left: 600px;
+    padding-top: 25px;
+}
+.checkMark {
+    text-align: center;
+    padding-top: 80px;
+}
+.textCheckMark p{
+    font-family: Raleway;
+    font-size: 23px;
+}
+.textCheckMark {
+    text-align: center;
+    padding-top: 25px;
+}
