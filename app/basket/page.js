@@ -1,6 +1,7 @@
+'use client'
 import React from 'react';
 import '@/app/basket/basket.css'
-import {TbSearch} from "react-icons/tb";
+import { VscAccount } from "react-icons/vsc";
 import {AiOutlineArrowRight, AiOutlineHeart} from "react-icons/ai";
 import {SlBasket} from "react-icons/sl";
 import { RiDeleteBin6Line } from "react-icons/ri";
@@ -19,7 +20,7 @@ export default function Basket() {
            <div className='textLogoComfortZone'> <p>comfort zone</p></div>
         </div>
     <div className='buttonsBasket'>
-        <TbSearch size={27}/>
+        <VscAccount size={27}/>
         <AiOutlineHeart size={30}/>
         <SlBasket size={28}/>
     </div>

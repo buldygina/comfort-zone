@@ -4,10 +4,11 @@ import '@/app/items/items.css'
 import {AiOutlineClose} from "react-icons/ai";
 import Square from '@/components/Square'
 import Circle from '@/components/Circle'
+import {addToFavourites} from "@/actions/item";
 
 export default function Catalog() {
-    const handleClick = () => {
-        console.log("Кнопка нажата!");
+    const handleClick = async () => {
+       await addToFavourites(1, 'email@email.ru')
     };
     return (
         <div className='MainPage'>

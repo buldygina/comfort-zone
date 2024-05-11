@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 import Navbar from "/components/Navbar";
-import {TbSearch} from "react-icons/tb";
+import { VscAccount } from "react-icons/vsc";
 import {AiOutlineHeart} from "react-icons/ai";
 import {SlBasket} from "react-icons/sl";
 import '@/app/catalog/catalog.css'
@@ -13,7 +13,7 @@ export default function Catalog() {
                 <Navbar/>
                 <div className="text">comfort zone</div>
                 <div className='button'>
-                    <TbSearch size={27}/>
+                    <VscAccount size={27}/>
                     <AiOutlineHeart size={30}/>
                     <SlBasket size={28}/>
                 </div>
