@@ -2,6 +2,7 @@
   overflow-y: scroll;
   scrollbar-color: #D8B388 #D8B388;
 }
+
 ::-webkit-scrollbar {
   width: 3px;
   height: 15px;
@@ -13,8 +14,9 @@
 
 ::-webkit-scrollbar-thumb:vertical {
   height: 30px;
-  background-color:#D8B388;
+  background-color: #D8B388;
 }
+
 body {
   min-height: 100vh;
   max-width: 100vw;
@@ -22,16 +24,21 @@ body {
   background-color: #F0F0F0;
 
 }
+
 .hamburgerMenuHeart {
-  position:relative;
+  position: relative;
+  cursor: pointer;
 }
+
 .menuHeart {
   position: absolute;
-  z-index:10000;
-  bottom:1;
+  z-index: 1003;
+  /* bottom: 0; */
   background: white;
-  left:0;
+  left: 0;
+  display: block;
 }
+
 .popularItems {
   font-size: 25px;
   color: rgb(0, 0, 0);
@@ -40,6 +47,7 @@ body {
   line-height: 56px;
   letter-spacing: 0%;
 }
+
 .aboutUs {
   font-family: Raleway;
   font-size: 25px;
@@ -48,6 +56,7 @@ body {
   padding-left: 20px;
   padding-top: 100px;
 }
+
 .photoAboutUs {
   display: flex;
   flex-direction: row;
@@ -56,19 +65,23 @@ body {
   padding-top: 50px;
   gap: 230px;
 }
+
 .buttonItems {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: baseline;
- padding-right: 20px;
+  padding-right: 20px;
 }
-.Items{
+
+.Items {
   position: relative;
 }
-.cost{
+
+.cost {
   padding-right: 75px;
 }
+
 .footer {
   width: 100%;
   height: 100px;
@@ -76,6 +89,7 @@ body {
   margin-top: 70px;
   position: relative;
 }
+
 .email {
   position: absolute;
   bottom: -12px;
@@ -84,7 +98,8 @@ body {
   color: #000000;
   font-weight: lighter;
 }
-.footerText{
+
+.footerText {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   padding-left: 20px;
@@ -92,7 +107,8 @@ body {
   color: #000000;
   font-weight: lighter;
 }
-.Good{
+
+.Good {
   position: absolute;
   bottom: 0;
   z-index: 100;
@@ -109,17 +125,21 @@ body {
   line-height: 28px;
   letter-spacing: 0%;
 }
+
 .buttonItems:first-child {
   padding-left: 10px;
 }
+
 .map {
   width: 100%;
   flex-grow: 1;
 }
+
 .textAboutUs {
   font-family: Raleway;
   font-size: 23px;
 }
+
 .buttonSeeAll {
   box-sizing: border-box;
   border: 3px solid rgb(255, 255, 255);
@@ -132,6 +152,7 @@ body {
   text-align: left;
 
 }
+
 .buttonContainer {
   display: flex;
   justify-content: space-between;
@@ -139,33 +160,40 @@ body {
   padding-top: 60px;
 }
 
+
+/* TODO: Проверить влияет ли overflow: hidden на меню */
 .slideshow {
   margin: auto;
-  overflow: hidden;
+  /* overflow: hidden; */
   max-width: 100vw;
   display: grid;
   align-items: center;
   grid-template-columns: 1fr 2fr 1fr;
   padding-inline: 20px;
 }
+
 .button {
   display: flex;
   flex-direction: row;
   gap: 60px;
   justify-self: end;
 }
+
 .slideshowSlider {
   white-space: nowrap;
   transition: ease 1000ms;
 }
+
 .slide {
   width: 100%;
   border-radius: 40px;
   display: inline-block;
 }
+
 .slideshowDots {
   text-align: center;
 }
+
 .slideshowDot {
   display: inline-block;
   height: 20px;
@@ -175,9 +203,11 @@ body {
   margin: 15px 7px 0px;
   background-color: #D4D4D4;
 }
+
 .slideshowDot.active {
   background-color: #D8B388;
 }
+
 .items {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -191,6 +221,7 @@ body {
   grid-template-columns: repeat(4, 1fr);
   padding-top: 40px;
 }
+
 .text {
   font-family: Raleway;
   font-size: 35px;
@@ -201,6 +232,7 @@ body {
   flex-grow: 1;
   text-align: center;
 }
+
 .hamburger-icon {
   cursor: pointer;
   display: flex;
@@ -236,9 +268,11 @@ body {
   opacity: 1;
   /*pointer-events: auto;*/
 }
-.MainPage{
+
+.MainPage {
   background-color: #F0F0F0;
 }
+
 .square {
   width: 130px;
   height: 60px;
@@ -247,6 +281,7 @@ body {
   position: relative;
   padding-left: 20px;
 }
+
 .textSquare {
   position: absolute;
   top: 50%;
@@ -256,6 +291,7 @@ body {
   color: white;
   font-weight: bold;
 }
+
 .round-button {
   width: 60px;
   height: 60px;
@@ -264,12 +300,14 @@ body {
   border: none;
   cursor: pointer;
 }
+
 .heart {
-  fill:red;
+  fill: red;
   transform: scale(0.85);
   display: flex;
   justify-content: center;
 }
+
 .costText {
   display: flex;
   justify-content: right;
