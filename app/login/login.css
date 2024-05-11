@@ -1,0 +1,52 @@
+.comfortzoneLogIn p{
+    font-family: Raleway;
+    font-size: 30px;
+    margin-right: 10px;
+    margin-top: 35px;
+    font-weight: bold;
+}
+.logInFlex {
+    display: flex;
+    justify-content: center;
+}
+.comfortzoneLogIn {
+    display: flex;
+    align-items: center
+}
+.signUptext p{
+    font-family: Raleway;
+    font-size: 28px;
+}
+.signUptext {
+    text-align:center;
+}
+.logInAccount{
+    text-align:center;
+}
+.logInAccount p{
+    font-family: Raleway;
+    font-size: 25px;
+    color: #D8B388;
+}
+.rectangleLogIn {
+    width: 600px;
+    height: 400px;
+    background-color: white;
+    margin-left: 490px;
+    border-radius: 25px;
+    margin-top: 50px;
+}
+.haveAccountLogIn {
+    font-family: Raleway;
+    font-size: 20px;
+}
+.logInText {
+    font-family: Raleway;
+    font-size: 20px;
+    color: #D8B388;
+}
+.logInRegistrationPage {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}

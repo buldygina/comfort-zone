@@ -1,6 +1,6 @@
 'use client'
 import React , { useRef } from 'react';
-import '@/app/codeConfirmation/codeConfirmation.css';
+import '@/app/codeconfirmation/codeConfirmation.css';
 import { Input, Button} from 'antd';
 export default function CodeConfirmation() {
     const inputRefs = Array.from({ length: 6 }, () => useRef(null));
