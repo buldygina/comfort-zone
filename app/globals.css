@@ -22,6 +22,16 @@ body {
   background-color: #F0F0F0;
 
 }
+.hamburgerMenuHeart {
+  position:relative;
+}
+.menuHeart {
+  position: absolute;
+  z-index:10000;
+  bottom:1;
+  background: white;
+  left:0;
+}
 .popularItems {
   font-size: 25px;
   color: rgb(0, 0, 0);
