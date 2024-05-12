@@ -30,10 +30,14 @@ export default function LogIn() {
                         <Input.Password maxLength={10} placeholder="Input password" style={{height: '40px',  borderColor: '#D8B388', color: '#333333'}}/>
                     </Space>
                 </div>
-                <Button type="primary" ghost style={{width: '300px',height:'40px',  color:'white', borderColor: '#D8B388', backgroundColor:'#D8B388', position: 'absolute', top: '65%', left: '51%', transform: 'translate(-50%, -50%)' }}>
+                <div className='forgetPasswordLogIn' style={{ position: 'absolute', top: '61%', left: '51%', transform: 'translate(-50%, -50%)' }}>
+                    <div className='forgotPassword'>Forgot your password?</div>
+                    <div className='changePasword'>Change it to a new one.</div>
+                </div>
+                <Button type="primary" ghost style={{width: '300px',height:'40px',  color:'white', borderColor: '#D8B388', backgroundColor:'#D8B388', position: 'absolute', top: '70%', left: '51%', transform: 'translate(-50%, -50%)' }}>
                     Log in
                 </Button>
-                <div className='logInRegistrationPage' style={{ position: 'absolute', top: '75%', left: '51%', transform: 'translate(-50%, -50%)' }}>
+                <div className='logInRegistrationPage' style={{ position: 'absolute', top: '77%', left: '51%', transform: 'translate(-50%, -50%)' }}>
                     <div className='haveAccountLogIn'>
                         You don't have an account?
                     </div>

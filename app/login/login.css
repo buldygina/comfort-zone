@@ -50,3 +50,17 @@
     align-items: center;
     gap: 5px;
 }
+.forgetPasswordLogIn {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+}
+.forgotPassword {
+    font-family: Raleway;
+    font-size: 17px;
+}
+.changePasword{
+    font-family: Raleway;
+    font-size: 17px;
+    color: #D8B388;
+}
