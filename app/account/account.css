@@ -1,0 +1,28 @@
+.headerAccount {
+    width: 100%;
+    height: 130px;
+    background-color: #CBBBAB;
+    position:absolute;
+}
+.headerAccount p{
+    font-family:Raleway;
+    font-size:30px;
+    color: white;
+    padding-left: 40px;
+    padding-top: 5px;
+}
+.rectangleAccount {
+    width: 800px;
+    height: 550px;
+    background-color: white;
+    margin-left: 350px;
+    position: absolute;
+    top: 65px;
+}
+.flexAccount {
+    display: flex;
+    flex-direction: row;
+    gap: 270px;
+    align-items: center;
+    justify-content: center;
+}
