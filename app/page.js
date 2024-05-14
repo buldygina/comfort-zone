@@ -7,6 +7,7 @@ import Navbar from "/components/Navbar";
 import { VscAccount } from "react-icons/vsc";
 import { AiOutlineHeart } from "react-icons/ai";
 import { SlBasket } from "react-icons/sl";
+import { AiOutlineClose } from "react-icons/ai";
 
 const colors = ["grey", "grey", "grey"];
 const delay = 5000;
@@ -16,6 +17,20 @@ export default function Home() {
     const hamburgerMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
+    React.useEffect(() => {
+        const body = document.body;
+        if (isMenuOpen) {
+            body.classList.add('scroll-lock');
+        } else {
+            body.classList.remove('scroll-lock');
+        }
+
+        // Очистка при размонтировании компонента
+        return () => {
+            body.classList.remove('scroll-lock');
+        };
+    }, [isMenuOpen]);
+
     const [index, setIndex] = React.useState(0);
     const timeoutRef = React.useRef(null);
     const [isOpen, setIsOpen] = React.useState(false);
@@ -50,23 +65,16 @@ export default function Home() {
                 <div className="text">comfort zone</div>
                 <div className='button'>
                     <VscAccount size={27} />
-                    <div className='hamburgerMenuHeart' onClick={hamburgerMenu}> <AiOutlineHeart size={30} />
+                    <div className='hamburgerMenuContainer'>
                         {isMenuOpen &&
                             <div className="menuHeart">
-                                Welcome to our cozy world! In our store, we've created the perfect space
-                                for those who value homey comfort and coziness. Here you'll find everything you need to make your
-                                home even cozier and the atmosphere around you even more pleasant. We believe that comfort doesn't
-                                have to be expensive. That's why we offer affordable prices on all our products, so everyone can
-                                create their own corner of comfort without breaking the bank. Step into our warm haven where comfort
-                                reigns supreme! At our store, we've curated a delightful collection to cater to those who cherish
-                                the snug embrace of home. Whether it's soft throws, inviting cushions, or ambient lighting, we've
-                                assembled all the essentials to elevate your living space into a sanctuary of serenity. We firmly
-                                believe that luxury shouldn't come with a hefty price tag. Hence, we strive to provide
-                                pocket-friendly prices on our entire range, ensuring that crafting your personal oasis remains
-                                within reach for all. Come, immerse yourself in the aura of coziness with us, and let's embark on a
-                                journey to transform your abode into a haven of tranquility and warmth!
+                                <p>Favourites</p>
                             </div>
-                        }</div>
+                        }
+                        <div className='hamburgerMenuHeart' onClick={hamburgerMenu}>
+                            {isMenuOpen ? <AiOutlineClose size={30} /> : <AiOutlineHeart size={30} />}
+                        </div>
+                    </div>
                     <SlBasket size={28} />
                 </div>
             </div>

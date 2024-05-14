@@ -16,27 +16,46 @@
   height: 30px;
   background-color: #D8B388;
 }
+/* Стили для блокировки прокрутки */
+.scroll-lock {
+  overflow: hidden;
+}
+
+/* Добавляем класс блокировки прокрутки, когда меню открыто */
+.scroll-lock-active {
+  overflow: hidden !important;
+}
 
 body {
   min-height: 100vh;
   max-width: 100vw;
   overflow-x: hidden;
   background-color: #F0F0F0;
-
 }
 
 .hamburgerMenuHeart {
   position: relative;
   cursor: pointer;
+  z-index: 1004;
 }
 
 .menuHeart {
   position: absolute;
   z-index: 1003;
-  /* bottom: 0; */
+  width: 800px;
+  height: 800px;
   background: white;
-  left: 0;
+  opacity: 0.9;
+  right: 0;
   display: block;
+  top: 0;
+}
+.menuHeart p{
+  font-size: 35px;
+  font-family: Raleway;
+  text-decoration: underline;
+  padding-left: 40px;
+  padding-top: 20px;
 }
 
 .popularItems {

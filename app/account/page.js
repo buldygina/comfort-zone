@@ -33,7 +33,7 @@ export default function Account() {
                         placeholder="Password"
                         style={{ borderColor: '#D8B388', width: '550px', height: '40px'}}/>
                 </div>
-                <Button danger disabled style={{width:'120px', height:'50px', backgroundColor:'#D8B388', fontFamily:'Raleway', color:"white", fontSize:'20px', position: 'absolute', top: '80%', left: '45%'}}>
+                <Button danger disabled style={{width:'120px', height:'50px', backgroundColor:'#D8B388', fontFamily:'Raleway', color:"white", fontSize:'20px', position: 'absolute', top: '80%', left: '43%'}}>
                     Save
                 </Button>
             </div>
