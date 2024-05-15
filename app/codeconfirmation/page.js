@@ -46,8 +46,7 @@ export default function CodeConfirmation() {
                 Send the confirmation code again
             </div>
             <div className='buttonsNextCancel'>
-            <Button type="primary" style={{width:'100px', height:'50px', backgroundColor:'#D8B388', fontFamily:'Raleway', fontSize:'23px'}}>Cancel</Button>
-            <Button type="primary" style={{width:'100px', height:'50px', backgroundColor:'#D8B388', fontFamily:'Raleway', fontSize:'23px'}}>Next</Button>
+            <Button type="primary" style={{width:'100px', height:'50px', backgroundColor:'#D8B388', fontFamily:'Raleway', fontSize:'23px'}}>Check</Button>
             </div>
         </div>
     );

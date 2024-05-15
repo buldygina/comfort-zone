@@ -3,16 +3,36 @@
 import { Placemark, YMaps, Map } from '@pbe/react-yandex-maps';
 import { useState } from "react";
 import React from 'react';
-import Navbar from "/components/Navbar";
+import { AiOutlineUnorderedList } from "react-icons/ai";
 import { VscAccount } from "react-icons/vsc";
 import { AiOutlineHeart } from "react-icons/ai";
 import { SlBasket } from "react-icons/sl";
 import { AiOutlineClose } from "react-icons/ai";
-
+import { IoCloseSharp } from "react-icons/io5";
 const colors = ["grey", "grey", "grey"];
 const delay = 5000;
 export default function Home() {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+    const [isMenuOpen2, setIsMenuOpen2 ] = React.useState(false);
+    const hamburgerMenu2 = () => {
+        setIsMenuOpen2(!isMenuOpen2);
+    };
+    React.useEffect(() => {
+        const body = document.body;
+        if (isMenuOpen2) {
+            body.classList.add('scroll-lock2');
+        } else {
+            body.classList.remove('scroll-lock2');
+        }
+
+        // Очистка при размонтировании компонента
+        return () => {
+            body.classList.remove('scroll-lock2');
+        };
+    }, [isMenuOpen2]);
+    const [index2, setIndex2] = React.useState(0);
+    const timeoutRef2 = React.useRef(null);
+    const [isOpen2, setIsOpen2] = React.useState(false);
 
     const hamburgerMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -34,10 +54,6 @@ export default function Home() {
     const [index, setIndex] = React.useState(0);
     const timeoutRef = React.useRef(null);
     const [isOpen, setIsOpen] = React.useState(false);
-
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-    }
 
     function resetTimeout() {
         if (timeoutRef.current) {
@@ -61,7 +77,20 @@ export default function Home() {
     return (
         <div className='MainPage'>
             <div className="slideshow">
-                <Navbar />
+                <div className='hamburgerMenu'>
+                    {isMenuOpen2 &&
+                        <div className="hamburgerMenu2">
+                            <p>Stores</p>
+                            <p>Guarantee</p>
+                            <p>Delivery</p>
+                            <p>Work time</p>
+                            <p>Sales%</p>
+                        </div>
+                    }
+                    <div className='hamburgerMenu' onClick={hamburgerMenu2}>
+                        {isMenuOpen2 ? <AiOutlineClose size={30} /> : <AiOutlineUnorderedList size={30} />}
+                    </div>
+                </div>
                 <div className="text">comfort zone</div>
                 <div className='button'>
                     <VscAccount size={27} />

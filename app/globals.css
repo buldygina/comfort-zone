@@ -25,6 +25,10 @@
 .scroll-lock-active {
   overflow: hidden !important;
 }
+.scroll-lock2 {
+  overflow: hidden;
+}
+
 
 body {
   min-height: 100vh;
@@ -38,7 +42,30 @@ body {
   cursor: pointer;
   z-index: 1004;
 }
-
+.hamburgerMenu {
+  position: relative;
+  cursor: pointer;
+  z-index: 1005;
+}
+.hamburgerMenu2 {
+  position: absolute;
+  z-index: 1004;
+  width: 700px;
+  height: 800px;
+  background: white;
+  opacity: 0.9;
+  left: -20px;
+  display: block;
+  top: -15px;
+}
+.hamburgerMenu2 p{
+  display: flex;
+  flex-direction: column;
+  font-size: 30px;
+  font-family: Raleway;
+  padding-left: 60px;
+ margin-top: 90px
+}
 .menuHeart {
   position: absolute;
   z-index: 1003;
