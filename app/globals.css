@@ -63,7 +63,6 @@ div.menuHeart .favouritesText p{
   font-family: Raleway;
   padding-left: 40px;
   padding-top: 20px;
-  font-weight: bold;
   text-decoration: none;
 }
 div.menuHeart .descriptionOfItems p{
@@ -71,7 +70,6 @@ div.menuHeart .descriptionOfItems p{
   font-family: Raleway;
   padding-left: 40px;
   padding-top: 20px;
-  font-weight: bold;
   text-decoration: none;
 }
 div.menuHeart .descriptionOfItems {
@@ -127,7 +125,6 @@ div.menuHeart .deleteItemFavourites{
   text-decoration: underline;
   padding-left: 40px;
   margin-top: 27px;
-  font-weight: bold;
 }
 
 .popularItems {
