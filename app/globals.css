@@ -58,6 +58,50 @@ body {
   display: block;
   top: -15px;
 }
+div.menuHeart .favouritesText p{
+  font-size: 25px;
+  font-family: Raleway;
+  padding-left: 40px;
+  padding-top: 20px;
+  font-weight: bold;
+  text-decoration: none;
+}
+div.menuHeart .descriptionOfItems p{
+  font-size: 28px;
+  font-family: Raleway;
+  padding-left: 40px;
+  padding-top: 20px;
+  font-weight: bold;
+  text-decoration: none;
+}
+div.menuHeart .descriptionOfItems {
+  display: flex;
+  flex-direction: column;
+  gap: 61px;
+  margin-top: -337px;
+  margin-left: 432px
+}
+div.menuHeart .favouritesText {
+  display: flex;
+  flex-direction: column;
+  gap: 73px;
+  margin-top: -396px;
+  margin-left: 153px
+}
+div.menuHeart .deleteItemFavourites{
+  display: flex;
+  flex-direction: column;
+  gap: 141px;
+  margin-top: -285px;
+  margin-left: 153px
+}
+.hamburgerMenuFavourites {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  padding-left: 40px;
+  padding-top: 20px
+}
 .hamburgerMenu2 p{
   display: flex;
   flex-direction: column;
@@ -82,7 +126,8 @@ body {
   font-family: Raleway;
   text-decoration: underline;
   padding-left: 40px;
-  padding-top: 20px;
+  margin-top: 27px;
+  font-weight: bold;
 }
 
 .popularItems {
