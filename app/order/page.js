@@ -8,6 +8,7 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import RemoveIcon from "@material-ui/icons/Remove";
 import AddIcon from "@material-ui/icons/Add";
+import { Input } from 'antd';
 
 export default function Order() {
     const [itemCountFirst, setItemCountFirst] = React.useState(1);
@@ -94,7 +95,8 @@ export default function Order() {
                 <p>Total: 50$</p>
                 <p>Delivery to CDEK warehouse: 13$</p>
                 <p>Russia, Moscow</p>
-                <p>Final amount 62,78$.</p>
+                <p>Sale: 10%</p>
+                <p>Final amount 56,5$.</p>
             </div>
             <form>
                 <div className="inputName">
@@ -153,8 +155,11 @@ export default function Order() {
                     <input id="name-comment" />
                 </div>
             </form>
+            <div className='promoCode'>
+                <Input placeholder="Enter promo code" style={{width: '600px', height:'40px', fontSize:'20px', fontFamily:'Raleway', borderColor:'black', marginTop: '60px', marginLeft:'25px', borderRadius:'50px'}}/>
+            </div>
             <div style={{ marginLeft: '80px', marginTop:'100px' }}>
-            <Button label="Place an order" className="custom-button" style={{ fontSize: '30px', padding: '30px 120px', fontFamily:'Raleway', color:'white', backgroundColor: '#CABAAE', border:'2px solid #BEAEA3'}} />
+            <Button label="Place an order" className="custom-button" style={{ fontSize: '30px', padding: '30px 120px', fontFamily:'Raleway', color:'white', backgroundColor: '#CABAAE', border:'2px solid #BEAEA3', marginTop:'0'}} />
             </div>
             <div className='personalData' style={{ display: 'flex', alignItems: 'center', marginTop: '60px', marginLeft:'40px' }}>
                 <input type="checkbox" id="cb3"  style={{ marginRight: '5px' }}/> <label htmlFor="cb3"><p style={{ margin: '0' }}>By clicking the button, you consent to the processing of your personal data.</p></label>
