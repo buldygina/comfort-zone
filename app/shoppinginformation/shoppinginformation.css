@@ -1,9 +1,9 @@
 .headerShoppingInformation{
-    font-family: Raleway;
-    font-size: 30px;
     display: flex;
     align-items: center;
-    flex-grow: 1;
+    gap: 640px;
+    font-family: Raleway;
+    font-size: 30px;
 }
 .shoppingInformationText {
     font-family: Raleway;
@@ -26,7 +26,7 @@
 .salesCardText {
     text-align: center;
     font-family: Raleway;
-    font-size: 35px;
+    font-size: 30px;
     padding-top: 50px;
     padding-left: 40px;
 }
@@ -34,7 +34,82 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 30px;
     padding-right: 20px;
     padding-left: 30px;
+}
+.storesShoppingInformation {
+    font-family: Raleway;
+    font-size: 40px;
+    padding-top: 200px;
+    padding-left: 40px;
+    text-align: center;
+}
+.pointDescription {
+    font-family: Raleway;
+    font-size: 25px;
+    font-family: Raleway;
+    font-size: 25px;
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 60px;
+}
+.guaranteeShoppingInformation {
+    font-family: Raleway;
+    font-size: 40px;
+    padding-top: 50px;
+    padding-left: 40px;
+    text-align: center;
+}
+.guaranteeDescription {
+    font-family: Raleway;
+    font-size: 25px;
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 60px;
+}
+.deliveryShoppingInformation {
+    font-family: Raleway;
+    font-size: 40px;
+    padding-top: 50px;
+    padding-left: 40px;
+    text-align: center;
+}
+.deliveryDescription {
+    font-family: Raleway;
+    font-size: 25px;
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 60px;
+}
+.workTimeShoppingInformation {
+    font-family: Raleway;
+    font-size: 40px;
+    padding-top: 50px;
+    padding-left: 40px;
+    text-align: center;
+}
+.workTimeDescription {
+    font-family: Raleway;
+    font-size: 25px;
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 60px;
+}
+.questionsShoppingInformation{
+    font-family: Raleway;
+    font-size: 23px;
+    padding-top: 50px;
+    padding-left: 40px;
+    text-align: right;
+}
+.footerShoppingInformation {
+    width: 100%;
+    height: 100px;
+    background: rgb(224, 224, 224);
+    margin-top: 0;
+    position: relative;
 }
