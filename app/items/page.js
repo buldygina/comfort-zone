@@ -4,12 +4,11 @@ import '@/app/items/items.css'
 import {AiOutlineClose} from "react-icons/ai";
 import Square from '@/components/Square'
 import Circle from '@/components/Circle'
-import {addToFavourites} from "@/actions/item";
 import {useRouter} from "next/navigation";
 import { Button} from 'antd';
 export default function Catalog() {
     const handleClick = async () => {
-       await addToFavourites(1, 'email@email.ru')
+       
     };
     const router = useRouter()
     const handleButtonClick = (e) => {
