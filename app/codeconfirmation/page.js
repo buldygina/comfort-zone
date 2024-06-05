@@ -2,6 +2,7 @@
 import React , { useRef } from 'react';
 import '@/app/codeconfirmation/codeConfirmation.css';
 import { Input, Button} from 'antd';
+import {useRouter} from "next/navigation";
 export default function CodeConfirmation() {
     const inputRefs = Array.from({ length: 6 }, () => useRef(null));
 
@@ -17,6 +18,11 @@ export default function CodeConfirmation() {
         if (input.value.length === 1 && nextInput) {
             nextInput.focus();
         }
+    };
+    const router = useRouter()
+    const handleButtonClick = (e) => {
+        e.preventDefault()
+        router.push('/')
     };
     return(
         <div>
@@ -46,7 +52,7 @@ export default function CodeConfirmation() {
                 Send the confirmation code again
             </div>
             <div className='buttonsNextCancel'>
-            <Button type="primary" style={{width:'100px', height:'50px', backgroundColor:'#D8B388', fontFamily:'Raleway', fontSize:'23px'}}>Check</Button>
+            <Button type="primary" onClick={handleButtonClick} style={{width:'100px', height:'50px', backgroundColor:'#D8B388', fontFamily:'Raleway', fontSize:'23px'}}>Check</Button>
             </div>
         </div>
     );

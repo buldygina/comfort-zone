@@ -150,6 +150,7 @@
     background: #CABAAE;
     margin-top: 150px;
     position: relative;
+    cursor: pointer;
 }
 .placeOrder {
     display: flex;
@@ -173,4 +174,15 @@
     text-align: center;
     color: white;
     padding-top: 30px;
+}
+.menuHeart {
+    position: absolute;
+    z-index: 1003;
+    width: 800px;
+    height: 800px;
+    background: white;
+    opacity: 0.9;
+    right: -40px;
+    display: block;
+    top: -20px;
 }

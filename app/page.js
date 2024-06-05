@@ -10,6 +10,7 @@ import { SlBasket } from "react-icons/sl";
 import { AiOutlineClose } from "react-icons/ai";
 import { IoCloseSharp } from "react-icons/io5";
 import { CgCloseO } from "react-icons/cg";
+import Link from "next/link";
 const colors = ["grey", "grey", "grey"];
 const delay = 5000;
 export default function Home() {
@@ -81,11 +82,11 @@ export default function Home() {
                 <div className='hamburgerMenu'>
                     {isMenuOpen2 &&
                         <div className="hamburgerMenu2">
-                            <p>Stores</p>
-                            <p>Guarantee</p>
-                            <p>Delivery</p>
-                            <p>Work time</p>
-                            <p>Sales%</p>
+                            <Link href={"/shoppinginformation#Stores"} style={{textDecoration: "none", color: "inherit"}}><p>Stores</p></Link>
+                            <Link href={"/shoppinginformation#Guarantee"} style={{textDecoration: "none", color: "inherit"}}><p>Guarantee</p></Link>
+                            <Link href={"/shoppinginformation#Delivery"} style={{textDecoration: "none", color: "inherit"}}><p>Delivery</p></Link>
+                            <Link href={"/shoppinginformation#Work time"} style={{textDecoration: "none", color: "inherit"}}><p>Work time</p></Link>
+                            <Link href={"/shoppinginformation#Sales"} style={{textDecoration: "none", color: "inherit"}}><p>Sales%</p></Link>
                         </div>
                     }
                     <div className='hamburgerMenu' onClick={hamburgerMenu2}>
@@ -94,7 +95,7 @@ export default function Home() {
                 </div>
                 <div className="text">comfort zone</div>
                 <div className='button'>
-                    <VscAccount size={27} />
+                    <Link href='/account' className='no-underline'><VscAccount size={27} /></Link>
                     <div className='hamburgerMenuContainer'>
                         {isMenuOpen &&
                             <div className="menuHeart">
@@ -121,7 +122,7 @@ export default function Home() {
                             {isMenuOpen ? <AiOutlineClose size={30} /> : <AiOutlineHeart size={30} />}
                         </div>
                     </div>
-                    <SlBasket size={28} />
+                    <Link href='/basket' className='basketUnderline'><SlBasket size={28} /></Link>
                 </div>
             </div>
             <div className="slideshowSlider" style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}>
@@ -138,7 +139,7 @@ export default function Home() {
                 ))}
             </div>
             <div className="buttonsMenu">
-                <img src={"/кнопка свечи.png"} style={{ width: "100%" }} alt="" />
+               <Link href='/catalog'><img src={"/кнопка свечи.png"} style={{ width: "100%" }} alt="" /></Link>
                 <img src={"/кнопка пледы.png"} style={{ width: "100%" }} alt="" />
                 <img src={"/кнопка кружки.png"} style={{ width: "100%" }} alt="" />
                 <img src={"/кнопка подушки.png"} style={{ width: "100%" }} alt="" />
@@ -150,7 +151,7 @@ export default function Home() {
             <div className='items'>
                 <div className='Items' style={{ width: "70%" }}><img src={"/1 товар.png"} style={{ width: "100%" }} alt="" />
                     <div className='Good'>
-                        <div className='buttonItems'><p>Pillow "Fluffy"</p>
+                        <div className='buttonItems'><p>Pillow "Cot"</p>
                             <div className='cost'><p>30$</p></div>
                             <div><AiOutlineHeart /> <SlBasket /></div>
                         </div>
@@ -214,10 +215,11 @@ export default function Home() {
                 </div>
             </div>
             <div className='footer'>
-                <div className='footerText'><p>stores</p>
-                    <p>guarantee</p>
-                    <p>delivery</p>
-                    <p>work time</p>
+                <div className='footerText'>
+                    <Link href={"/shoppinginformation#Stores"} style={{textDecoration: "none", color: "inherit"}}><p>stores</p></Link>
+                    <Link href={"/shoppinginformation#Guarantee"} style={{textDecoration: "none", color: "inherit"}}><p>guarantee</p></Link>
+                        <Link href={"/shoppinginformation#Delivery"} style={{textDecoration: "none", color: "inherit"}}><p>delivery</p></Link>
+                            <Link href={"/shoppinginformation#Work time"} style={{textDecoration: "none", color: "inherit"}}><p>work time</p></Link>
                 </div>
                 <p className="email">comfortzone@mail.ru</p>
             </div>

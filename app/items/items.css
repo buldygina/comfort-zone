@@ -2,6 +2,7 @@
     position:absolute;
     left: 20px;
     top:20px;
+    cursor: pointer;
 }
 .fifthItem {
    padding-left: 100px;
@@ -21,7 +22,7 @@
     display: flex;
     justify-content: right;
     align-items: center;
-    gap: 20px;
+    gap: 40px;
     position: relative;
     bottom:530px;
     padding-right: 500px;

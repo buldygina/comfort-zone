@@ -4,7 +4,42 @@ import React from 'react';
 import { BsCupHot } from "react-icons/bs";
 import { UserOutlined,  EyeInvisibleOutlined, EyeTwoTone  } from '@ant-design/icons';
 import { Input,  Space, Button } from 'antd';
+import Link from "next/link";
+import {useRouter} from "next/navigation";
 export default function Registration() {
+    const router = useRouter()
+    const handleButtonClick = (e) => {
+        e.preventDefault()
+        router.push('/codeconfirmation')
+    };
+    const [registerCredentials, setRegisterCredentials] = React.useState({
+        username: null,
+        password: null,
+        rePassword: null,
+        email: null
+    })
+    const [error, setError] = React.useState({
+        username: null,
+        password: null,
+        email: null
+    })
+    const [cookies,setCookie] = useCookies()
+    const [register] = useRegisterMutation()
+    const registerAccount = async (e) =>{
+        e.preventDefault()
+        setError({username: null, password: null, email: null})
+        if (registerCredentials.password !== registerCredentials.rePassword) return setError({username: null, email:null, password: "Пароли не совпадают"})
+        const response = await register({body: {username: registerCredentials.username, password: registerCredentials.password, email:registerCredentials.email}})
+        if (!response.error) {
+            setCookie('access', response.data.accessToken)
+            setCookie('renew', response.data.refreshToken)
+            router.replace('/')
+        }
+        else {
+            if (typeof response.error.data.detail === 'object') setError({username: response.error.data.detail.username, password: response.error.data.detail.password, email: error.data.detail.email})
+            else setError({password: null, username: null, email: null})
+        }
+    }
     return (
         <div>
             <div className='registrationFlex'>
@@ -17,7 +52,7 @@ export default function Registration() {
                 <p>Sign up for a new account</p>
             </div>
             <div className='logOutAccount'>
-            <p>or log in to your account</p>
+                <Link href='/login'style={{textDecoration:'none', color:'inherit'}}><p>or log in to your account</p></Link>
             </div>
             <div className='rectangleRegistration'>
                 <div className='enterYourUsername' style={{ position: 'absolute', top: '42%', left: '51%', transform: 'translate(-50%, -50%)'}} >
@@ -40,7 +75,7 @@ export default function Registration() {
                     />
                 </Space>
                 </div>
-                <Button type="primary" ghost style={{width: '300px',height:'40px',  color:'white', borderColor: '#D8B388', backgroundColor:'#D8B388', position: 'absolute', top: '75%', left: '51%', transform: 'translate(-50%, -50%)' }}>
+                <Button onClick={handleButtonClick} type="primary" ghost style={{width: '300px',height:'40px',  color:'white', borderColor: '#D8B388', backgroundColor:'#D8B388', position: 'absolute', top: '75%', left: '51%', transform: 'translate(-50%, -50%)' }}>
                     Create
                 </Button>
                 <div className='logInRegistration' style={{ position: 'absolute', top: '83%', left: '51%', transform: 'translate(-50%, -50%)' }}>
@@ -48,7 +83,7 @@ export default function Registration() {
                     Already registered?
                 </div>
                 <div className='logIn'>
-                    Log in to your account.
+                    <Link href='/login'style={{textDecoration:'none', color:'inherit'}}>Log in to your account.</Link>
                 </div>
                 </div>
             </div>

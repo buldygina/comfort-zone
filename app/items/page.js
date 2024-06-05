@@ -5,22 +5,32 @@ import {AiOutlineClose} from "react-icons/ai";
 import Square from '@/components/Square'
 import Circle from '@/components/Circle'
 import {addToFavourites} from "@/actions/item";
-
+import {useRouter} from "next/navigation";
+import { Button} from 'antd';
 export default function Catalog() {
     const handleClick = async () => {
        await addToFavourites(1, 'email@email.ru')
     };
+    const router = useRouter()
+    const handleButtonClick = (e) => {
+        e.preventDefault()
+        router.push('/catalog')
+    }
+    const handleClickButton = (e) => {
+        e.preventDefault()
+        router.push('/basket')
+    }
     return (
         <div className='MainPage'>
-            <div className='buttonClose'>
+            <div className='buttonClose' onClick={handleButtonClick}>
                 <AiOutlineClose size={35}/></div>
             <div className='costText'>
             <div className='textFifth'>SOFTNESS</div>
             <div className='cost'><p>25$</p></div>
             </div>
-            <div className='fifthItem'><img src={"/5 свеча.png"} style={{width: "37%"}} alt=""/></div>
+            <div className='fifthItem'><img src={"/5 свеча.png"} style={{width: "35%"}} alt=""/></div>
             <div className='buttonHeart'>
-            <div><Square textSquare='BUY NOW'/></div>
+                <Button type="primary" onClick={handleClickButton} style={{width:'140px', height:'55px', fontFamily:'Raleway', fontSize:'18px', backgroundColor:'#CABAAE', borderRadius:'25px'}}>BUY NOW</Button>
             <div>
                 <Circle onClick={handleClick}>
                     <svg className='heart' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">

@@ -4,7 +4,13 @@ import '@/app/newpassword/newpassword.css'
 import {BsCupHot} from "react-icons/bs";
 import {Button, Input, Space} from "antd";
 import {EyeInvisibleOutlined, EyeTwoTone, UserOutlined} from "@ant-design/icons";
+import {useRouter} from "next/navigation";
 export default function NewPassword() {
+    const router = useRouter()
+    const handleButtonClick = (e) => {
+        e.preventDefault()
+        router.push('/')
+    };
     return(
         <div>
             <div className='newPasswordFlex'>
@@ -26,7 +32,7 @@ export default function NewPassword() {
                         />
                     </Space>
                 </div>
-                <Button type="primary" ghost style={{width: '300px',height:'40px',  color:'white', borderColor: '#D8B388', backgroundColor:'#D8B388', position: 'absolute', top: '60%', left: '51%', transform: 'translate(-50%, -50%)' }}>
+                <Button type="primary" onClick={handleButtonClick} ghost style={{width: '300px',height:'40px',  color:'white', borderColor: '#D8B388', backgroundColor:'#D8B388', position: 'absolute', top: '60%', left: '51%', transform: 'translate(-50%, -50%)' }}>
                     Change password
                 </Button>
             </div>

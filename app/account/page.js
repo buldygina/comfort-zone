@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import '@/app/account/account.css'
 import { MdOutlineChangeCircle } from "react-icons/md";
@@ -5,15 +6,24 @@ import { IoArrowBackOutline } from "react-icons/io5";
 import {Input} from "antd";
 import {UserOutlined} from "@ant-design/icons";
 import { Button } from 'antd';
+import Link from "next/link";
+import { MdOutlineExitToApp } from "react-icons/md";
+import {useRouter} from "next/navigation";
 export default function Account() {
+    const router = useRouter()
+    const handleButtonClick = (e) => {
+        e.preventDefault()
+        router.push('/login')
+    };
     return(
         <div>
             <div className='headerAccount'>
                 <p>Profile</p>
+               <div className='exit' onClick={handleButtonClick}><MdOutlineExitToApp size={30}/></div>
             </div>
             <div className='rectangleAccount'>
                 <div className='flexAccount'>
-                <IoArrowBackOutline size={30}/>
+                <Link href='/' className='backUnderline'><IoArrowBackOutline size={30}/></Link>
                 <img src={"/person-circle-sharp .png"}  />
                     <MdOutlineChangeCircle size={30}/>
                 </div>

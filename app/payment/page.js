@@ -1,6 +1,8 @@
 'use client'
 import React from "react";
 import '@/app/payment/payment.css'
+import Link from "next/link";
+import {IoArrowBack} from "react-icons/io5";
 
 export default function Payment() {
     const [cardNumber, setCardNumber] = React.useState("");
@@ -38,6 +40,10 @@ export default function Payment() {
         setIsFlipped(false);
     };
     return (
+        <div>
+            <div className='buttonBack'>
+            <Link href='/order' style={{textDecoration: "none", color: "inherit"}}><IoArrowBack size={35} /></Link>
+            </div>
             <div className='payment'>
                 <div className={`card-container ${isFlipped ? "flipped" : ""}`}>
                     <div className='front'>
@@ -76,7 +82,7 @@ export default function Payment() {
                     </div>
                     <div className='inputBox'>
                         <span>card holder</span>
-                        <input type='text'  className='card-holder-input' onChange={handleCardHolderChange}/>
+                        <input type='text' maxLength='30' className='card-holder-input' onChange={handleCardHolderChange}/>
                     </div>
                     <div className='flexbox'>
                         <div className='inputBox'>
@@ -118,9 +124,10 @@ export default function Payment() {
                             <span>cvv</span>
                             <input type='text' maxLength='4' className='cvv-input' onMouseEnter={handleCvvMouseEnter} onMouseLeave={handleCvvMouseLeave} onChange={handleCvvChange} />
                         </div>
-                    </div>
-                    <input type='submit' value='submit' className='submit-btn'/>
+                   </div>
+                    <Link href='/orderprocessing'> <input type='submit' value='submit' className='submit-btn'/></Link>
                 </form>
             </div>
+        </div>
     );
 }

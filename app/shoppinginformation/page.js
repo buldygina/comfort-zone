@@ -7,6 +7,7 @@ import {CgCloseO} from "react-icons/cg";
 import {AiOutlineClose, AiOutlineHeart} from "react-icons/ai";
 import {VscAccount} from "react-icons/vsc";
 import {SlBasket} from "react-icons/sl";
+import Link from "next/link";
 export default function ShoppingInformation() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
     const hamburgerMenu = () => {
@@ -33,11 +34,11 @@ export default function ShoppingInformation() {
         <div>
             <div className='containerShoppingInformation'>
             <div className='headerShoppingInformation'>
-                <IoArrowBackOutline size={30}/>
+                <Link href='/' style={{textDecoration: "none", color: "inherit"}}><IoArrowBackOutline size={30}/></Link>
                 <p>comfort zone</p>
             </div>
             <div className='button'>
-                <VscAccount size={27} />
+                <Link href='/account' style={{textDecoration: "none", color: "inherit"}}> <VscAccount size={27} /></Link>
                 <div className='hamburgerMenuContainer'>
                     {isMenuOpen &&
                         <div className="menuHeart">
@@ -64,14 +65,14 @@ export default function ShoppingInformation() {
                         {isMenuOpen ? <AiOutlineClose size={30} /> : <AiOutlineHeart size={30} />}
                     </div>
                 </div>
-                <SlBasket size={28} />
+                <Link href='/basket' style={{textDecoration: "none", color: "inherit"}}> <SlBasket size={28} /></Link>
             </div>
             </div>
             <div className='shoppingInformationText'>
                 Shopping information
             </div>
-            <div className='Sales'>
-                <p>Sales %</p>
+            <div className='Sales' id='Sales'>
+                <p >Sales %</p>
                 <div className='salesCard'>
                 <img src={"/скидочная карта.png"} style={{ width: '40%', height: "40%" }} alt="" />
                 </div>
@@ -82,7 +83,7 @@ export default function ShoppingInformation() {
                     Get a discount
                 </Button>
             </div>
-            <div className='storesShoppingInformation'>
+            <div id="Stores" className='storesShoppingInformation'>
                 Stores
             </div>
             <div className='pointDescription'>
@@ -104,7 +105,7 @@ export default function ShoppingInformation() {
                 Address: 5 Izmailovskoye Highway, Moscow, 105187</p>
               <p>Visit any of our convenient locations to explore our curated selection of home essentials and discover the perfect items to enhance your comfort and style.</p>
             </div>
-            <div className='guaranteeShoppingInformation'>
+            <div className='guaranteeShoppingInformation' id='Guarantee'>
                 Guarantee
             </div>
             <div className='guaranteeDescription'>
@@ -126,7 +127,7 @@ export default function ShoppingInformation() {
               <p>Regards,</p>
              <p>Comfort Zone team</p>
             </div>
-            <div className='deliveryShoppingInformation'>
+            <div className='deliveryShoppingInformation' id='Delivery'>
                 Delivery
             </div>
             <div className='deliveryDescription'>
@@ -146,7 +147,7 @@ export default function ShoppingInformation() {
 
             <p>At Comfort Zone, we are committed to providing you with a seamless shopping experience from start to finish. With our reliable delivery services through СDEK, you can shop with confidence knowing that your order will be delivered safely and efficiently to your desired location.</p>
             </div>
-            <div className='workTimeShoppingInformation'>
+            <div className='workTimeShoppingInformation' id='Work time'>
                 Work time
             </div>
             <div className='workTimeDescription'>
@@ -168,10 +169,11 @@ export default function ShoppingInformation() {
                 If you have any questions, please contact us at @comfortzone@mail.ru
             </div>
             <div className='footerShoppingInformation'>
-                <div className='footerText'><p>stores</p>
-                    <p>guarantee</p>
-                    <p>delivery</p>
-                    <p>work time</p>
+                <div className='footerText'>
+                    <Link href={"/shoppinginformation#Stores"} style={{textDecoration: "none", color: "inherit"}}><p>stores</p></Link>
+                    <Link href={"/shoppinginformation#Guarantee"} style={{textDecoration: "none", color: "inherit"}}><p>guarantee</p></Link>
+                    <Link href={"/shoppinginformation#Delivery"} style={{textDecoration: "none", color: "inherit"}}><p>delivery</p></Link>
+                    <Link href={"/shoppinginformation#Work time"} style={{textDecoration: "none", color: "inherit"}}><p>work time</p></Link>
                 </div>
                 <p className="email">comfortzone@mail.ru</p>
             </div>

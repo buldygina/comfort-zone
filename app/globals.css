@@ -16,12 +16,12 @@
   height: 30px;
   background-color: #D8B388;
 }
-/* Стили для блокировки прокрутки */
+
 .scroll-lock {
   overflow: hidden;
 }
 
-/* Добавляем класс блокировки прокрутки, когда меню открыто */
+
 .scroll-lock-active {
   overflow: hidden !important;
 }
@@ -403,4 +403,12 @@ div.menuHeart .deleteItemFavourites{
   gap: 20px;
   padding-top: 50px;
   padding-right: 430px;
+}
+.no-underline{
+  text-decoration: none;
+  color: inherit;
+}
+.basketUnderline{
+  text-decoration: none;
+  color: inherit;
 }

@@ -3,6 +3,12 @@
     height: 130px;
     background-color: #CBBBAB;
     position:absolute;
+    display: flex;
+    align-items: center;
+    gap: 1300px;
+}
+.exit{
+    cursor: pointer;
 }
 .headerAccount p{
     font-family:Raleway;
@@ -25,4 +31,8 @@
     gap: 270px;
     align-items: center;
     justify-content: center;
+}
+.backUnderline{
+    text-decoration: none;
+    color: inherit;
 }

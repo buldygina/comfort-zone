@@ -9,15 +9,21 @@ import ButtonGroup from "@material-ui/core/ButtonGroup";
 import RemoveIcon from "@material-ui/icons/Remove";
 import AddIcon from "@material-ui/icons/Add";
 import { Input } from 'antd';
-
+import Link from "next/link";
+import {useRouter} from "next/navigation";
 export default function Order() {
+    const router = useRouter()
     const [itemCountFirst, setItemCountFirst] = React.useState(1);
     const [itemCountSecond, setItemCountSecond] = React.useState(1);
+    const handleButtonClick = (e) => {
+        e.preventDefault()
+        router.push('/payment')
+    };
     return (
         <div>
             <div className="headerOrder">
                 <div className="headerTexrOrder">
-                    <IoArrowBack size={35} />
+                    <Link href='/basket' style={{textDecoration: "none", color: "inherit"}}><IoArrowBack size={35} /></Link>
                     <div className="orderText">
                         <p>YOUR ORDER</p>
                     </div>
@@ -159,16 +165,17 @@ export default function Order() {
                 <Input placeholder="Enter promo code" style={{width: '600px', height:'40px', fontSize:'20px', fontFamily:'Raleway', borderColor:'black', marginTop: '60px', marginLeft:'25px', borderRadius:'50px'}}/>
             </div>
             <div style={{ marginLeft: '80px', marginTop:'100px' }}>
-            <Button label="Place an order" className="custom-button" style={{ fontSize: '30px', padding: '30px 120px', fontFamily:'Raleway', color:'white', backgroundColor: '#CABAAE', border:'2px solid #BEAEA3', marginTop:'0'}} />
+            <Button label="Place an order" onClick={handleButtonClick} className="custom-button" style={{ fontSize: '30px', padding: '30px 120px', fontFamily:'Raleway', color:'white', backgroundColor: '#CABAAE', border:'2px solid #BEAEA3', marginTop:'0'}} />
             </div>
             <div className='personalData' style={{ display: 'flex', alignItems: 'center', marginTop: '60px', marginLeft:'40px' }}>
                 <input type="checkbox" id="cb3"  style={{ marginRight: '5px' }}/> <label htmlFor="cb3"><p style={{ margin: '0' }}>By clicking the button, you consent to the processing of your personal data.</p></label>
             </div>
             <div className='footer'>
-                <div className='footerText'><p>stores</p>
-                    <p>guarantee</p>
-                    <p>delivery</p>
-                    <p>work time</p>
+                <div className='footerText'>
+                    <Link href={"/shoppinginformation#Stores"} style={{textDecoration: "none", color: "inherit"}}><p>stores</p></Link>
+                    <Link href={"/shoppinginformation#Guarantee"} style={{textDecoration: "none", color: "inherit"}}><p>guarantee</p></Link>
+                    <Link href={"/shoppinginformation#Delivery"} style={{textDecoration: "none", color: "inherit"}}><p>delivery</p></Link>
+                    <Link href={"/shoppinginformation#Work time"} style={{textDecoration: "none", color: "inherit"}}><p>work time</p></Link>
                 </div>
                 <p className="email">comfortzone@mail.ru</p>
             </div>
