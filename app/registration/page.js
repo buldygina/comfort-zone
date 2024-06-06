@@ -7,12 +7,9 @@ import { Input, Space, Button } from 'antd';
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCookies } from 'react-cookie';
+import { useRegistrationMutation } from "@/api/api";
 export default function Registration() {
     const router = useRouter()
-    const handleButtonClick = (e) => {
-        e.preventDefault()
-        router.push('/codeconfirmation')
-    };
     const [registerCredentials, setRegisterCredentials] = React.useState({
         username: null,
         password: null,
@@ -25,22 +22,23 @@ export default function Registration() {
         email: null
     })
     const [cookies, setCookie] = useCookies()
-    // const [register] = useRegisterMutation()
-    // const registerAccount = async (e) => {
-    //     e.preventDefault()
-    //     setError({ username: null, password: null, email: null })
-    //     if (registerCredentials.password !== registerCredentials.rePassword) return setError({ username: null, email: null, password: "Пароли не совпадают" })
-    //     const response = await register({ body: { username: registerCredentials.username, password: registerCredentials.password, email: registerCredentials.email } })
-    //     if (!response.error) {
-    //         setCookie('access', response.data.accessToken)
-    //         setCookie('renew', response.data.refreshToken)
-    //         router.replace('/')
-    //     }
-    //     else {
-    //         if (typeof response.error.data.detail === 'object') setError({ username: response.error.data.detail.username, password: response.error.data.detail.password, email: error.data.detail.email })
-    //         else setError({ password: null, username: null, email: null })
-    //     }
-    // }
+    const [register] =useRegistrationMutation()
+    const registerAccount = async (e) => {
+        e.preventDefault()
+        setError({ username: null, password: null, email: null })
+        if (registerCredentials.password !== registerCredentials.rePassword) return setError({ username: null, email: null, password: "Passwords don't match", rePassword: "Passwords don't match" })
+        const response = await register({ body: { username: registerCredentials.username, password: registerCredentials.password, email: registerCredentials.email } })
+        if (!response.error) {
+            setCookie('access', response.data.accessToken)
+            setCookie('renew', response.data.refreshToken)
+            router.replace('/codeconfirmation')
+        }
+        else {
+            console.log(response.error)
+            if (typeof response.error.data.detail === 'object') setError({ username: response.error.data.detail.username, password: response.error.data.detail.password, email: response.error.data.detail.email })
+            else setError({ password: null, username: null, email: null })
+        }
+    }
     return (
         <div>
             <div className='registrationFlex'>
@@ -57,26 +55,30 @@ export default function Registration() {
             </div>
             <div className='rectangleRegistration'>
                 <div className='enterYourUsername' style={{ position: 'absolute', top: '42%', left: '51%', transform: 'translate(-50%, -50%)' }} >
-                    <Input
+                    <Input status={error.username ? "error" : null} onChange={(event) =>setRegisterCredentials((prev) =>({...prev, username: event.target.value}))}
                         placeholder="Enter your username"
                         prefix={<UserOutlined style={{ color: '#D8B388' }} />}
                         style={{ borderColor: '#D8B388', width: '450px', height: '40px' }} />
+                    {error.username && <p style={{color:'red'}}>{error.username}</p>}
                 </div>
                 <div className='enterYourEmail' style={{ position: 'absolute', top: '50%', left: '51%', transform: 'translate(-50%, -50%)' }} >
-                    <Input
+                    <Input status={error.email ? "error" : null} onChange={(event) =>setRegisterCredentials((prev) =>({...prev, email: event.target.value}))}
                         placeholder="Enter your email"
                         style={{ borderColor: '#D8B388', width: '450px', height: '40px' }} />
+                    {error.email && <p style={{color:'red'}}>{error.email}</p>}
                 </div>
                 <div className='enterYourPassword' style={{ position: 'absolute', top: '60%', left: '51%', transform: 'translate(-50%, -50%)' }} >
                     <Space direction="vertical" style={{ width: '450px', gap: '20px', height: '60px' }}>
-                        <Input.Password maxLength={10} placeholder="Input password" style={{ height: '40px', borderColor: '#D8B388', color: '#333333' }} />
-                        <Input.Password maxLength={10} style={{ height: '40px', borderColor: '#D8B388' }}
+                        <Input.Password  status={error.password ? "error" : null} onChange={(event) =>setRegisterCredentials((prev) =>({...prev, password: event.target.value}))} maxLength={10} placeholder="Input password" style={{ height: '40px', borderColor: '#D8B388', color: '#333333' }} />
+                        {error.password && <p style={{color:'red'}}>{error.password}</p>}
+                        <Input.Password status={error.rePassword ? "error" : null} onChange={(event) =>setRegisterCredentials((prev) =>({...prev, rePassword: event.target.value}))}  maxLength={10} style={{ height: '40px', borderColor: '#D8B388' }}
                             placeholder="Reset your password"
                             iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
                         />
+                        {error.rePassword && <p style={{color:'red'}}>{error.rePassword}</p>}
                     </Space>
                 </div>
-                <Button onClick={handleButtonClick} type="primary" ghost style={{ width: '300px', height: '40px', color: 'white', borderColor: '#D8B388', backgroundColor: '#D8B388', position: 'absolute', top: '75%', left: '51%', transform: 'translate(-50%, -50%)' }}>
+                <Button onClick={registerAccount} type="primary" ghost style={{ width: '300px', height: '40px', color: 'white', borderColor: '#D8B388', backgroundColor: '#D8B388', position: 'absolute', top: '75%', left: '51%', transform: 'translate(-50%, -50%)' }}>
                     Create
                 </Button>
                 <div className='logInRegistration' style={{ position: 'absolute', top: '83%', left: '51%', transform: 'translate(-50%, -50%)' }}>
