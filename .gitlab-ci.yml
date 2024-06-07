@@ -2,6 +2,9 @@ stages:
   - build
 
 build image and push to registry:
+  image: docker:latest
+  services:
+    - docker:dind
   stage: build
   script:
     - export DOCKER_BUILDKIT=1
