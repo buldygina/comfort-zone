@@ -12,6 +12,7 @@ import { IoCloseSharp } from "react-icons/io5";
 import { CgCloseO } from "react-icons/cg";
 import Link from "next/link";
 import FavouriteItem from "@/components/FavouriteItem";
+import {useCategoriesQuery, useGetSpecificCategoryQuery, useItemsPopularQuery} from "@/api/api";
 const colors = ["grey", "grey", "grey"];
 const delay = 5000;
 export default function Home() {
@@ -81,6 +82,8 @@ export default function Home() {
     const handleLikeClick = () => {
         setIsLiked(!isLiked);
     };
+    const {data, error} = useCategoriesQuery()
+    const PopularItems = useItemsPopularQuery()
     return (
         <div className='MainPage'>
             <div className="slideshow">
@@ -143,41 +146,24 @@ export default function Home() {
                     />
                 ))}
             </div>
-            <div className="buttonsMenu">
-               <Link href='/catalog'><img src={"/кнопка свечи.png"} style={{ width: "100%" }} alt="" /></Link>
-                <Link href='/catalog'><img src={"/кнопка пледы.png"} style={{ width: "100%" }} alt="" /></Link>
-                <Link href='/catalog'><img src={"/кнопка кружки.png"} style={{ width: "100%" }} alt="" /></Link>
-                    <Link href='/catalog'>  <img src={"/кнопка подушки.png"} style={{ width: "100%" }} alt="" /></Link>
+            <div className="buttonsMenu">{data?.length > 0 && data.map(category => <Link href={`/catalog/${category.id}`} key={category.id}>
+                <img src={category.image} style={{ width: "100%" }} alt="" /></Link>)}
             </div>
             <div className='buttonContainer'>
                 <div className='popularItems'> POPULAR ITEMS</div>
                 <Link href='/catalog'> <button className='buttonSeeAll'>SEE ALL</button></Link>
             </div>
             <div className='items'>
-                <div className='Items' style={{ width: "70%" }}><img src={"/1 товар.png"} style={{ width: "100%" }} alt="" />
+                {PopularItems.data && PopularItems.data.map(popular => (<Link href={`/catalog/${popular.id}`} key={popular.id}><div className='Items' style={{ width: "70%" }}><img src={popular.image} style={{ width: "100%" }} alt="" />
                     <div className='Good'>
-                        <div className='buttonItems'><p>Pillow "Cot"</p>
-                            <div className='cost'><p>30$</p></div>
+                        <div className='buttonItems'><p>{popular.name}</p>
+                            <div className='cost'><p>{popular.cost}</p></div>
                             <div className='buttonsFavourites'>
                                 <FavouriteItem defaultLiked={false}/><SlBasket /></div>
                         </div>
                     </div>
-                </div>
-                <div className='Items' style={{ width: "70%" }}><img src={"/2 товар.png"} style={{ width: "100%" }} alt="" />
-                    <div className='Good'>
-                        <div className='buttonItems'><p>Candle “Fire” </p> <div className='cost'><p>20$</p></div>
-                            <div className='buttonsFavourites'><FavouriteItem defaultLiked={false}/><SlBasket /></div>
-                        </div>
-                    </div>
-                </div>
-                <div className='Items' style={{ width: "70%" }}><img src={"/3 товар.png"} style={{ width: "100%" }} alt="" />
-                    <div className='Good'>
-                        <div className='buttonItems'><p>Plaid “Pink”</p>
-                            <div className='cost'><p>35$</p></div>
-                            <div className='buttonsFavourites'><FavouriteItem defaultLiked={false}/><SlBasket /></div>
-                        </div>
-                    </div>
-                </div>
+                </div></Link>))
+                }
             </div>
             <div className='aboutUs'>
                 ABOUT US

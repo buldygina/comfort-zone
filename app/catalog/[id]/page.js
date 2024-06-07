@@ -11,6 +11,7 @@ import {CgCloseO} from "react-icons/cg";
 import {useRouter} from "next/navigation";
 import FavouriteItem from "@/components/FavouriteItem";
 import {useCookies} from "react-cookie";
+import {useGetSpecificCategoryQuery} from "@/api/api";
 
 const colors = ["grey", "grey", "grey"];
 const delay = 5000;
@@ -80,7 +81,7 @@ export default function Catalog({params}) {
         e.preventDefault()
         router.push('/items')
     };
-
+    const {data, error} = useGetSpecificCategoryQuery({categoryId: params.id})
     return (
         <div className='MainPage'>
             <div className="slideshow">
@@ -143,57 +144,24 @@ export default function Catalog({params}) {
                 <p>plaids</p>
             </div>
             <div className='textCandles'>
-                <p>Home is where comfort begins, and happiness never ends.</p>
+                <p>{data.description}</p>
             </div>
             <div className='imageCandles'>
-                <img src={"/свечи.png"} style={{width: "20%"}} alt=""/>
+                <img src={data.image} style={{width: "20%"}} alt=""/>
             </div>
-            <div className='candleCatalog'><p>CANDLE CATALOG</p></div>
+            <div className='candleCatalog'><p>{data.name} CATALOG</p></div>
             <div className='items'>
-                <div className='Items' style={{width: "70%"}}><img src={"/1 свеча.png"} style={{width: "100%"}} alt=""/>
-                    <div className='Good'>
-                        <div className='buttonItems'><p>CANDLE "PINK"</p>
-                            <div className='buttonsFavourites'><FavouriteItem defaultLiked={false}/><SlBasket/></div>
+                {data?.items.length > 0 && data.items.map(item => <Link href={`/catalog/${params.id}/items/${item.id}`} key={item.id}>
+                    <div className='Items' style={{width: "70%"}}><img src={item.image} style={{width: "100%"}} alt=""/>
+                        <div className='Good'>
+                            <div className='buttonItems'><p>{item.name}</p>
+                                <div className='buttonsFavourites'><FavouriteItem defaultLiked={false}/><SlBasket/>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className='Items' style={{width: "70%"}}><img src={"/2 свеча.png"} style={{width: "100%"}} alt=""/>
-                    <div className='Good'>
-                        <div className='buttonItems'><p>CANDLE "COSINESS"</p>
-                            <div className='buttonsFavourites'><FavouriteItem defaultLiked={false}/><SlBasket/></div>
-                        </div>
-                    </div>
-                </div>
-                <div className='Items' style={{width: "70%"}}><img src={"/3 свеча.png"} style={{width: "100%"}} alt=""/>
-                    <div className='Good'>
-                        <div className='buttonItems'><p>CANDLE “WARM”</p>
-                            <div className='buttonsFavourites'><FavouriteItem defaultLiked={false}/><SlBasket/></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className='items'>
-                <div className='Items' style={{width: "70%"}}><img src={"/5 свеча.png"} style={{width: "100%"}} alt=""/>
-                    <div className='Good'>
-                        <div className='buttonItems'><p onClick={handleButtonClick}>CANDLE “SOFTNESS”</p>
-                            <div className='buttonsFavourites'><FavouriteItem defaultLiked={false}/><SlBasket/></div>
-                        </div>
-                    </div>
-                </div>
-                <div className='Items' style={{width: "70%"}}><img src={"/4 свеча.png"} style={{width: "100%"}} alt=""/>
-                    <div className='Good'>
-                        <div className='buttonItems'><p>CANDLE “PINK SET”</p>
-                            <div className='buttonsFavourites'><FavouriteItem defaultLiked={false}/><SlBasket/></div>
-                        </div>
-                    </div>
-                </div>
-                <div className='Items' style={{width: "70%"}}><img src={"/6 свеча.png"} style={{width: "100%"}} alt=""/>
-                    <div className='Good'>
-                        <div className='buttonItems'><p>CANDLE “SEASHELL”</p>
-                            <div className='buttonsFavourites'><FavouriteItem defaultLiked={false}/><SlBasket/></div>
-                        </div>
-                    </div>
-                </div>
+                </Link>)
+                }
             </div>
             <div className='back'>
                 <Link href='/' style={{textDecoration: "none", color: "inherit"}}>

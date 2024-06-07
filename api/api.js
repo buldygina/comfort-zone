@@ -146,40 +146,36 @@ export const api = createApi({
 			})
 		}),
 		userItems: builder.query({
-			query: ({body}) => ({
-				url: `${apiPrefix}/items/{itemId}`,
+			query: ({itemId}) => ({
+				url: `${apiPrefix}/items/${itemId}`,
 				method: "GET",
-				body: body,
 				headers: {
 					'Content-Type': 'application/json'
 				}
 			})
 		}),
 		itemsPopular: builder.query({
-			query: ({body}) => ({
+			query: () => ({
 				url: `${apiPrefix}/items/popular`,
 				method: "GET",
-				body: body,
 				headers: {
 					'Content-Type': 'application/json'
 				}
 			})
 		}),
 		categories: builder.query({
-			query: ({body}) => ({
+			query: () => ({
 				url: `${apiPrefix}/categories`,
 				method: "GET",
-				body:body,
 				headers: {
 					'Content-Type': 'application/json'
 				}
 			})
 		}),
-		categoryId: builder.query({
-			query: ({body}) => ({
-				url: `${apiPrefix}/categories/{categoryId}`,
+		getSpecificCategory: builder.query({
+			query: ({categoryId}) => ({
+				url: `${apiPrefix}/categories/${categoryId}`,
 				method: "GET",
-				body: body,
 				headers: {
 					'Content-Type': 'application/json'
 				}
@@ -202,6 +198,6 @@ export const {
 	useUserItemsQuery,
 	useItemsPopularQuery,
 	useCategoriesQuery,
-	useCategoryIdQuery
+	useGetSpecificCategoryQuery
 } = api
 
