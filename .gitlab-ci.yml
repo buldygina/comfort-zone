@@ -1,16 +1,12 @@
-image: docker:latest
-services:
-  - docker:dind
-
-variables:
-  DOCKER_DRIVER: overlay
-
 stages:
   - build
 
 build image and push to registry:
   stage: build
+  image: docker:latest
   script:
+    - apk add curl
+    - curl https://registry.gitlab.sirok.space/v2/
     - echo $CI_DEPLOY_USER
     - echo $CI_DEPLOY_PASSWORD
     - docker login registry.gitlab.sirok.space -u $CI_DEPLOY_USER -p $CI_DEPLOY_PASSWORD
