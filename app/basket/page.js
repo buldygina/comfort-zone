@@ -14,6 +14,7 @@ import RemoveIcon from "@material-ui/icons/Remove";
 import Link from "next/link";
 import {CgCloseO} from "react-icons/cg";
 import {useRouter} from "next/navigation";
+import FavouriteItem from "@/components/FavouriteItem";
 export default function Basket() {
     const router = useRouter()
     const [itemCountFirst, setItemCountFirst] = React.useState(1);
@@ -104,8 +105,8 @@ export default function Basket() {
             </div>
             </div>
             <div className='addToFavourites'>
-                <div className='addToFavouritesFirst'> <p>add to favourites</p> <AiOutlineHeart size={25}/></div>
-                <div className='addToFavouritesSecond'><p>add to favourites</p> <AiOutlineHeart size={25}/></div>
+                <div className='addToFavouritesFirst'> <p>add to favourites</p> <FavouriteItem defaultLiked={false} size={25}/></div>
+                <div className='addToFavouritesSecond'><p>add to favourites</p> <FavouriteItem defaultLiked={false} size={25}/></div>
             </div>
             <div className='deleteItems'>
                 <div className='deleteItemsFirst'> <p>delete</p> <RiDeleteBin6Line size={24}/></div>

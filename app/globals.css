@@ -161,6 +161,11 @@ div.menuHeart .deleteItemFavourites{
   align-items: baseline;
   padding-right: 20px;
 }
+.buttonsFavourites{
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
 
 .Items {
   position: relative;
@@ -238,7 +243,7 @@ div.menuHeart .deleteItemFavourites{
   line-height: 38px;
   letter-spacing: 0%;
   text-align: left;
-
+  cursor: pointer;
 }
 
 .buttonContainer {

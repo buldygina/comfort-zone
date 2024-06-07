@@ -30,7 +30,7 @@
 }
 .rectangleRegistration {
     width: 600px;
-    height: 400px;
+    height: 480px;
     background-color: white;
    margin-left: 490px;
     border-radius: 25px;
@@ -49,4 +49,12 @@
     display: flex;
     align-items: center;
     gap: 5px;
+}
+.textError{
+    margin-top: -4px;
+    margin-bottom: 5px;
+}
+.textError2{
+    margin-top: -6px;
+    margin-bottom: 5px;
 }

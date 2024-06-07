@@ -115,6 +115,75 @@ export const api = createApi({
 					'Content-Type': 'application/json'
 				}
 			})
+		}),
+		userLikes: builder.query({
+			query: ({body, access}) => ({
+				url: `${apiPrefix}/user/likes`,
+				method: "GET",
+				body: body,
+				headers: {
+					'Content-Type': 'application/json',
+					'Authorization': `Bearer ${access}`
+				}
+			})
+		}),
+		userLikesPut: builder.mutation({
+			query: ({access}) => ({
+				url: `${apiPrefix}/user/current/sendVerify`,
+				method: "PUT",
+				headers: {
+					'Authorization': `Bearer ${access}`
+				}
+			})
+		}),
+		userLikesPutItemId: builder.mutation({
+			query: () => ({
+				url: `${apiPrefix}/user/likes/{itemId}`,
+				method: "DELETE",
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+		}),
+		userItems: builder.query({
+			query: ({body}) => ({
+				url: `${apiPrefix}/items/{itemId}`,
+				method: "GET",
+				body: body,
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+		}),
+		itemsPopular: builder.query({
+			query: ({body}) => ({
+				url: `${apiPrefix}/items/popular`,
+				method: "GET",
+				body: body,
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+		}),
+		categories: builder.query({
+			query: ({body}) => ({
+				url: `${apiPrefix}/categories`,
+				method: "GET",
+				body:body,
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+		}),
+		categoryId: builder.query({
+			query: ({body}) => ({
+				url: `${apiPrefix}/categories/{categoryId}`,
+				method: "GET",
+				body: body,
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
 		})
 	})
 })
@@ -126,6 +195,13 @@ export const {
 	useLoginMutation,
 	useSendRestoreMutation,
 	useRestoreMutation,
-	useRefreshTokenMutation
+	useRefreshTokenMutation,
+	useUserLikesQuery,
+	useUserLikesPutQuery,
+	useUserLikesPutItemIdQuery,
+	useUserItemsQuery,
+	useItemsPopularQuery,
+	useCategoriesQuery,
+	useCategoryIdQuery
 } = api
 

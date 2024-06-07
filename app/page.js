@@ -3,7 +3,7 @@
 import { Placemark, YMaps, Map } from '@pbe/react-yandex-maps';
 import { useState } from "react";
 import React from 'react';
-import { AiOutlineUnorderedList } from "react-icons/ai";
+import {AiFillHeart, AiOutlineUnorderedList} from "react-icons/ai";
 import { VscAccount } from "react-icons/vsc";
 import { AiOutlineHeart } from "react-icons/ai";
 import { SlBasket } from "react-icons/sl";
@@ -11,6 +11,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import { IoCloseSharp } from "react-icons/io5";
 import { CgCloseO } from "react-icons/cg";
 import Link from "next/link";
+import FavouriteItem from "@/components/FavouriteItem";
 const colors = ["grey", "grey", "grey"];
 const delay = 5000;
 export default function Home() {
@@ -27,8 +28,7 @@ export default function Home() {
             body.classList.remove('scroll-lock2');
         }
 
-        // Очистка при размонтировании компонента
-        return () => {
+                return () => {
             body.classList.remove('scroll-lock2');
         };
     }, [isMenuOpen2]);
@@ -76,6 +76,11 @@ export default function Home() {
             resetTimeout();
         };
     }, [index]);
+    const [isLiked, setIsLiked] = React.useState(false);
+
+    const handleLikeClick = () => {
+        setIsLiked(!isLiked);
+    };
     return (
         <div className='MainPage'>
             <div className="slideshow">
@@ -140,27 +145,28 @@ export default function Home() {
             </div>
             <div className="buttonsMenu">
                <Link href='/catalog'><img src={"/кнопка свечи.png"} style={{ width: "100%" }} alt="" /></Link>
-                <img src={"/кнопка пледы.png"} style={{ width: "100%" }} alt="" />
-                <img src={"/кнопка кружки.png"} style={{ width: "100%" }} alt="" />
-                <img src={"/кнопка подушки.png"} style={{ width: "100%" }} alt="" />
+                <Link href='/catalog'><img src={"/кнопка пледы.png"} style={{ width: "100%" }} alt="" /></Link>
+                <Link href='/catalog'><img src={"/кнопка кружки.png"} style={{ width: "100%" }} alt="" /></Link>
+                    <Link href='/catalog'>  <img src={"/кнопка подушки.png"} style={{ width: "100%" }} alt="" /></Link>
             </div>
             <div className='buttonContainer'>
                 <div className='popularItems'> POPULAR ITEMS</div>
-                <button className='buttonSeeAll'>SEE ALL</button>
+                <Link href='/catalog'> <button className='buttonSeeAll'>SEE ALL</button></Link>
             </div>
             <div className='items'>
                 <div className='Items' style={{ width: "70%" }}><img src={"/1 товар.png"} style={{ width: "100%" }} alt="" />
                     <div className='Good'>
                         <div className='buttonItems'><p>Pillow "Cot"</p>
                             <div className='cost'><p>30$</p></div>
-                            <div><AiOutlineHeart /> <SlBasket /></div>
+                            <div className='buttonsFavourites'>
+                                <FavouriteItem defaultLiked={false}/><SlBasket /></div>
                         </div>
                     </div>
                 </div>
                 <div className='Items' style={{ width: "70%" }}><img src={"/2 товар.png"} style={{ width: "100%" }} alt="" />
                     <div className='Good'>
                         <div className='buttonItems'><p>Candle “Fire” </p> <div className='cost'><p>20$</p></div>
-                            <div><AiOutlineHeart /><SlBasket /></div>
+                            <div className='buttonsFavourites'><FavouriteItem defaultLiked={false}/><SlBasket /></div>
                         </div>
                     </div>
                 </div>
@@ -168,7 +174,7 @@ export default function Home() {
                     <div className='Good'>
                         <div className='buttonItems'><p>Plaid “Pink”</p>
                             <div className='cost'><p>35$</p></div>
-                            <div><AiOutlineHeart /><SlBasket /></div>
+                            <div className='buttonsFavourites'><FavouriteItem defaultLiked={false}/><SlBasket /></div>
                         </div>
                     </div>
                 </div>

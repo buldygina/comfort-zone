@@ -66,7 +66,7 @@ export default function LogIn() {
 						   onChange={(event) => setLoginCredentials((prev) => ({...prev, email: event.target.value}))}
 						   placeholder="Enter your email"
 						   style={{borderColor: '#D8B388', width: '450px', height: '40px'}}/>
-					{error.email && <p style={{color: 'red'}}>{error.email}</p>}
+					{error.email && <p style={{color: 'red', marginTop:'0'}}>{error.email}</p>}
 				</div>
 				<div className='enterYourPasswordLogIn'
 					 style={{position: 'absolute', top: '55%', left: '51%', transform: 'translate(-50%, -50%)'}}>
@@ -83,7 +83,7 @@ export default function LogIn() {
 					</Space>
 				</div>
 				<div className='forgetPasswordLogIn'
-					 style={{position: 'absolute', top: '61%', left: '51%', transform: 'translate(-50%, -50%)'}}>
+					 style={{position: 'absolute', top: '63%', left: '51%', transform: 'translate(-50%, -50%)'}}>
 					<div className='forgotPassword'>Forgot your password?</div>
 					<Link href='/newpassword' style={{textDecoration: 'none', color: 'inherit'}}>
 						<div className='changePasword'>Change it to a new one.</div>

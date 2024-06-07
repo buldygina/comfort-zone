@@ -55,6 +55,11 @@
     position: relative;
     cursor: pointer;
 }
+.buttonsFavourites{
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+}
 .Good {
     color: #464646;
 }

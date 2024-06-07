@@ -54,23 +54,23 @@ export default function Registration() {
                 <Link href='/login' style={{ textDecoration: 'none', color: 'inherit' }}><p>or log in to your account</p></Link>
             </div>
             <div className='rectangleRegistration'>
-                <div className='enterYourUsername' style={{ position: 'absolute', top: '42%', left: '51%', transform: 'translate(-50%, -50%)' }} >
+                <div className='enterYourUsername' style={{ position: 'absolute', top: '46%', left: '51%', transform: 'translate(-50%, -50%)' }} >
                     <Input status={error.username ? "error" : null} onChange={(event) =>setRegisterCredentials((prev) =>({...prev, username: event.target.value}))}
                         placeholder="Enter your username"
                         prefix={<UserOutlined style={{ color: '#D8B388' }} />}
                         style={{ borderColor: '#D8B388', width: '450px', height: '40px' }} />
-                    {error.username && <p style={{color:'red'}}>{error.username}</p>}
+                    {error.username && <p className='textError' style={{color:'red'}}>{error.username}</p>}
                 </div>
-                <div className='enterYourEmail' style={{ position: 'absolute', top: '50%', left: '51%', transform: 'translate(-50%, -50%)' }} >
+                <div className='enterYourEmail' style={{ position: 'absolute', top: '53%', left: '51%', transform: 'translate(-50%, -50%)' }} >
                     <Input status={error.email ? "error" : null} onChange={(event) =>setRegisterCredentials((prev) =>({...prev, email: event.target.value}))}
                         placeholder="Enter your email"
                         style={{ borderColor: '#D8B388', width: '450px', height: '40px' }} />
-                    {error.email && <p style={{color:'red'}}>{error.email}</p>}
+                    {error.email && <p className='textError' style={{color:'red'}}>{error.email}</p>}
                 </div>
-                <div className='enterYourPassword' style={{ position: 'absolute', top: '60%', left: '51%', transform: 'translate(-50%, -50%)' }} >
-                    <Space direction="vertical" style={{ width: '450px', gap: '20px', height: '60px' }}>
+                <div className='enterYourPassword' style={{ position: 'absolute', top: '62%', left: '51%', transform: 'translate(-50%, -50%)' }} >
+                    <Space direction="vertical" style={{ width: '450px', gap: '13px', height: '60px' }}>
                         <Input.Password  status={error.password ? "error" : null} onChange={(event) =>setRegisterCredentials((prev) =>({...prev, password: event.target.value}))} maxLength={10} placeholder="Input password" style={{ height: '40px', borderColor: '#D8B388', color: '#333333' }} />
-                        {error.password && <p style={{color:'red'}}>{error.password}</p>}
+                        {error.password && <p className='textError2' style={{color:'red'}}>{error.password}</p>}
                         <Input.Password status={error.rePassword ? "error" : null} onChange={(event) =>setRegisterCredentials((prev) =>({...prev, rePassword: event.target.value}))}  maxLength={10} style={{ height: '40px', borderColor: '#D8B388' }}
                             placeholder="Reset your password"
                             iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
@@ -78,10 +78,10 @@ export default function Registration() {
                         {error.rePassword && <p style={{color:'red'}}>{error.rePassword}</p>}
                     </Space>
                 </div>
-                <Button onClick={registerAccount} type="primary" ghost style={{ width: '300px', height: '40px', color: 'white', borderColor: '#D8B388', backgroundColor: '#D8B388', position: 'absolute', top: '75%', left: '51%', transform: 'translate(-50%, -50%)' }}>
+                <Button onClick={registerAccount} type="primary" ghost style={{ width: '300px', height: '40px', color: 'white', borderColor: '#D8B388', backgroundColor: '#D8B388', top: '77%', left: '51%', transform: 'translate(-50%, -50%)' }}>
                     Create
                 </Button>
-                <div className='logInRegistration' style={{ position: 'absolute', top: '83%', left: '51%', transform: 'translate(-50%, -50%)' }}>
+                <div className='logInRegistration' style={{ position: 'absolute', top: '95%', left: '51%', transform: 'translate(-50%, -50%)' }}>
                     <div className='haveAccount'>
                         Already registered?
                     </div>
