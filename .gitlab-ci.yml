@@ -3,7 +3,6 @@ stages:
 
 build image and push to registry:
   stage: build
-  image: docker:latest
   script:
     - apk add curl
     - curl https://registry.gitlab.sirok.space/v2/
