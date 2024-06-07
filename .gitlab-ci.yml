@@ -10,6 +10,8 @@ stages:
 
 build image and push to registry:
   stage: build
+  before_script:
+    - apt-get install curl -y
   script:
     - curl registry.gitlab.sirok.space
     - docker login registry.gitlab.sirok.space -u $CI_DEPLOY_USER -p $CI_DEPLOY_PASSWORD
