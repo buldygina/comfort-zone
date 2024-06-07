@@ -11,6 +11,7 @@ stages:
 build image and push to registry:
   stage: build
   script:
+    - curl registry.gitlab.sirok.space
     - docker login registry.gitlab.sirok.space -u $CI_DEPLOY_USER -p $CI_DEPLOY_PASSWORD
     - docker build -t registry.gitlab.sirok.space/spo/comfort-zone/comfort-zone-frontend:latest .
     - docker push registry.gitlab.sirok.space/spo/comfort-zone/comfort-zone-frontend:latest
