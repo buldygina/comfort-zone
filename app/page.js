@@ -86,53 +86,7 @@ export default function Home() {
     const PopularItems = useItemsPopularQuery()
     return (
         <div className='MainPage'>
-            <div className="slideshow">
-                <div className='hamburgerMenu'>
-                    {isMenuOpen2 &&
-                        <div className="hamburgerMenu2">
-                            <Link href={"/shoppinginformation#Stores"} style={{textDecoration: "none", color: "inherit"}}><p>Stores</p></Link>
-                            <Link href={"/shoppinginformation#Guarantee"} style={{textDecoration: "none", color: "inherit"}}><p>Guarantee</p></Link>
-                            <Link href={"/shoppinginformation#Delivery"} style={{textDecoration: "none", color: "inherit"}}><p>Delivery</p></Link>
-                            <Link href={"/shoppinginformation#Work time"} style={{textDecoration: "none", color: "inherit"}}><p>Work time</p></Link>
-                            <Link href={"/shoppinginformation#Sales"} style={{textDecoration: "none", color: "inherit"}}><p>Sales%</p></Link>
-                        </div>
-                    }
-                    <div className='hamburgerMenu' onClick={hamburgerMenu2}>
-                        {isMenuOpen2 ? <AiOutlineClose size={30} /> : <AiOutlineUnorderedList size={30} />}
-                    </div>
-                </div>
-                <div className="text">comfort zone</div>
-                <div className='button'>
-                    <Link href='/account' className='no-underline'><VscAccount size={27} /></Link>
-                    <div className='hamburgerMenuContainer'>
-                        {isMenuOpen &&
-                            <div className="menuHeart">
-                                <p>Favourites</p>
-                                <div className='hamburgerMenuFavourites'>
-                                <img src={"/3 свеча.png"} style={{ width: '15%', height: "15%", borderRadius:'25px' }} alt="" />
-                                <img src={"/4 свеча.png"} style={{ width: '15%', height: "15%", borderRadius:'25px' }} alt="" />
-                                    <div className='favouritesText'>
-                                        <p>CANDLE "WARM"</p>
-                                        <p>CANDLE "PINK SET"</p>
-                                    </div>
-                                    <div className='descriptionOfItems'>
-                                        <p>22$</p>
-                                        <p>19$</p>
-                                        <div className='deleteItemFavourites'>
-                                        <CgCloseO size={27}/>
-                                        <CgCloseO size={27}/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        }
-                        <div className='hamburgerMenuHeart' onClick={hamburgerMenu}>
-                            {isMenuOpen ? <AiOutlineClose size={30} /> : <AiOutlineHeart size={30} />}
-                        </div>
-                    </div>
-                    <Link href='/basket' className='basketUnderline'><SlBasket size={28} /></Link>
-                </div>
-            </div>
+            
             <div className="slideshowSlider" style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}>
                 <img src={"/слайд шоу 1.png"} style={{ width: '100%', height: "100%" }} alt="" />
                 <img src={"/слайд шоу 2.png"} style={{ width: "100%", height: '100%' }} alt="" />

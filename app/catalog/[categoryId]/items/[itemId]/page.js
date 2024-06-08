@@ -30,7 +30,7 @@ export default function Catalog() {
             <div className='textFifth'>{data.name}</div>
             <div className='cost'><p>{data.cost}</p></div>
             </div>
-            <div className='fifthItem'><img src={data.image} style={{width: "35%"}} alt=""/></div>
+            <div className='fifthItem'><img src={data.image} style={{width: "45%"}} alt=""/></div>
             <div className='buttonHeart'>
                 <Button type="primary" onClick={handleClickButton} style={{width:'140px', height:'55px', fontFamily:'Raleway', fontSize:'18px', backgroundColor:'#CABAAE', borderRadius:'25px'}}>BUY NOW</Button>
             <div>
