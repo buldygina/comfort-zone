@@ -6,34 +6,34 @@ import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { message } from 'antd';
 
 const FavouriteItem = ({ defaultLiked, style, size, itemId, isLikedBefore = false }) => {
-    const [messageApi] = message.useMessage()
+    const [messageApi, contextHolder] = message.useMessage()
     const [isLiked, setIsLiked] = React.useState(defaultLiked);
     const [cookies] = useCookies()
     const [addLike] = useAddLikeMutation()
     const [removeLike] = useRemoveLikeMutation()
 
     const handleLikeClick = async () => {
-        messageApi.open([{
+        messageApi.open({
             key: "likeStatus",
             type: "loading",
             content: "loading...."
-        }])
+        })
         if (!isLikedBefore) {
             const response = await addLike({ body: { itemId }, access: cookies.access })
-            if (response.error) messageApi.open([{
+            if (response.error) messageApi.open({
                 key: "likeStatus",
                 type: "error",
                 content: "You must be signed in",
                 duration: 2
-            }])
+            })
             else {
-                messageApi.open([{
+                messageApi.open({
                     key: "likeStatus",
                     type: "success",
                     content: "Added to favorites!",
                     duration: 2
 
-                }])
+                })
                 setIsLiked(true);
             }
         }
@@ -61,6 +61,7 @@ const FavouriteItem = ({ defaultLiked, style, size, itemId, isLikedBefore = fals
 
     return (
         <div className="favourite-item" onClick={handleLikeClick} style={style}>
+            {contextHolder}
             {isLiked ? <AiFillHeart style={{ color: 'red' }} size={size} /> : <AiOutlineHeart size={size} />}
         </div>
     );

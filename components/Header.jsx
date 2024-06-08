@@ -8,6 +8,7 @@ import React from "react"
 import { usePathname, useRouter } from "next/navigation";
 import { IoArrowBackOutline } from "react-icons/io5";
 import LikesMenu from "@/components/LikesMenu";
+import { useCookies } from "react-cookie";
 
 const Header = () => {
 	const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -16,6 +17,7 @@ const Header = () => {
 	const [hide, setHide] = React.useState(false)
 	const pathname = usePathname()
 	const router = useRouter()
+	const [cookies] = useCookies()
 	const hamburgerMenu2 = () => {
 		setIsMenuOpen2(!isMenuOpen2);
 	};
@@ -58,7 +60,7 @@ const Header = () => {
 		if (pathname.includes("catalog") || pathname === "/") {
 			setMenuOrButton(true)
 		}
-		if (["/login", "/register", "/account"].includes(pathname)) setHide(true)
+		if (["/login", "/registration", "/account", "/codeconfirmation"].includes(pathname)) setHide(true)
 		else if (pathname.includes("items")) setHide(true)
 		else setHide(false)
 
@@ -92,7 +94,7 @@ const Header = () => {
 				}
 				<div className="text">comfort zone</div>
 				<div className='button'>
-					<Link href='/account' className='no-underline'><VscAccount size={27}/></Link>
+					<Link href={cookies.access? "/account" : "/login"} className='no-underline'><VscAccount size={27}/></Link>
 					<div className='hamburgerMenuContainer'>
 						{isMenuOpen &&
 							<LikesMenu/>

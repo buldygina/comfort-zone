@@ -1,28 +1,26 @@
 'use client'
-import React , { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import '@/app/codeconfirmation/codeConfirmation.css';
 import { Input, Button} from 'antd';
 import {useRouter} from "next/navigation";
+import { useGetCurrentUserVerifyMutation } from "@/api/api";
+import { useCookies } from "react-cookie";
+import { number } from "prop-types";
 export default function CodeConfirmation() {
-    const inputRefs = Array.from({ length: 6 }, () => useRef(null));
-
-    const handleInputChange = (index, e) => {
-        const input = e.target;
-        const nextInput = inputRefs[index + 1]?.current;
-        const prevInput = inputRefs[index - 1]?.current;
-
-        if (input.value.length === 0 && prevInput) {
-            prevInput.focus();
-        }
-
-        if (input.value.length === 1 && nextInput) {
-            nextInput.focus();
-        }
+    const [code, setCode] = useState("")
+    const onChange = (text) => {
+        setCode(text)
+    };
+    const sharedProps = {
+        onChange
     };
     const router = useRouter()
-    const handleButtonClick = (e) => {
+    const [cookies] = useCookies()
+    const [sendVerification] = useGetCurrentUserVerifyMutation()
+    const handleButtonClick = async (e) => {
         e.preventDefault()
-        router.push('/')
+        await sendVerification({body: {code: Number(code)}, access: cookies.access})
+        router.replace("/")
     };
     return(
         <div>
@@ -36,15 +34,10 @@ export default function CodeConfirmation() {
                 <div className='centered-inputs'>
                 <p>Validation code:</p>
                     <div className='inputs-row'>
-                {[...Array(6)].map((_, index) => (
-                    <Input
-                        key={index}
-                        style={{ width: '50px', marginRight: '8px' }}
-                        maxLength={1}
-                        onChange={(e) => handleInputChange(index, e)}
-                        ref={inputRefs[index]}
+                    <Input.OTP
+                        length={6}
+                        {...sharedProps}
                     />
-                ))}
                     </div>
                 </div>
             </div>

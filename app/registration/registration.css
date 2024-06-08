@@ -30,11 +30,14 @@
 }
 .rectangleRegistration {
     width: 600px;
-    height: 480px;
     background-color: white;
-   margin-left: 490px;
     border-radius: 25px;
-    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    align-items: center;
+    padding-block: 5em;
+    padding-inline: 5em;
 }
 .haveAccount {
     font-family: Raleway;

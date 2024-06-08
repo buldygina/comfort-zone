@@ -9,7 +9,7 @@
     font-family: Raleway;
     font-size: 40px;
     padding-top: 80px;
-    padding-left: 40px;
+
     font-weight: bold;
     text-align: center;
 }
@@ -17,7 +17,7 @@
     font-family: Raleway;
     font-size: 40px;
     padding-top: 50px;
-    padding-left: 40px;
+
     text-align: center;
 }
 .salesCard {
@@ -28,7 +28,7 @@
     font-family: Raleway;
     font-size: 30px;
     padding-top: 50px;
-    padding-left: 40px;
+
 }
 .containerShoppingInformation {
     display: flex;
@@ -40,8 +40,6 @@
 .storesShoppingInformation {
     font-family: Raleway;
     font-size: 40px;
-    padding-top: 200px;
-    padding-left: 40px;
     text-align: center;
 }
 .pointDescription {
@@ -58,7 +56,7 @@
     font-family: Raleway;
     font-size: 40px;
     padding-top: 50px;
-    padding-left: 40px;
+
     text-align: center;
 }
 .guaranteeDescription {
@@ -73,7 +71,7 @@
     font-family: Raleway;
     font-size: 40px;
     padding-top: 50px;
-    padding-left: 40px;
+
     text-align: center;
 }
 .deliveryDescription {
@@ -88,7 +86,7 @@
     font-family: Raleway;
     font-size: 40px;
     padding-top: 50px;
-    padding-left: 40px;
+
     text-align: center;
 }
 .workTimeDescription {
@@ -103,7 +101,7 @@
     font-family: Raleway;
     font-size: 23px;
     padding-top: 50px;
-    padding-left: 40px;
+
     text-align: right;
 }
 .footerShoppingInformation {

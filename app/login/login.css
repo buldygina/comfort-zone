@@ -30,11 +30,14 @@
 }
 .rectangleLogIn {
     width: 600px;
-    height: 400px;
-    background-color: white;
-    margin-left: 490px;
+    background-color: white;;
     border-radius: 25px;
-    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    align-items: center;
+    padding-block: 5em;
+    padding-inline: 5em;
 }
 .haveAccountLogIn {
     font-family: Raleway;

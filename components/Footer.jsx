@@ -7,7 +7,8 @@ const Footer = () => {
 	const [hide, setHide] = React.useState(false)
 	const pathname = usePathname()
 	React.useEffect(() => {
-		if (["/login", "/register", "/account"].includes(pathname)) setHide(true)
+		if (["/login", "/registration", "/account", "/codeconfirmation"].includes(pathname)) setHide(true)
+		else if (pathname.includes("items")) setHide(true)
 		else setHide(false)
 	}, [pathname])
 	if (hide) return null

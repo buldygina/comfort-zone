@@ -64,22 +64,22 @@ export default function Home() {
             <div className="buttonsMenu">{data?.length > 0 && data.map(category => <Link href={`/catalog/${category.id}`} key={category.id}>
                 <img src={category.image} style={{ width: "100%" }} alt="" /></Link>)}
             </div>
-            <div className='buttonContainer'>
-                <div className='popularItems'> POPULAR ITEMS</div>
-                <Link href='/catalog'> <button className='buttonSeeAll'>SEE ALL</button></Link>
-            </div>
-            <div className='items'>
-                {PopularItems.data && PopularItems.data.map(popular => (<Link href={`/catalog/${popular.id}`} key={popular.id}><div className='Items' style={{ width: "70%" }}><img src={popular.image} style={{ width: "100%" }} alt="" />
-                    <div className='Good'>
-                        <div className='buttonItems'><p>{popular.name}</p>
-                            <div className='cost'><p>{popular.cost}</p></div>
-                            <div className='buttonsFavourites'>
-                                <FavouriteItem defaultLiked={false}/><SlBasket /></div>
-                        </div>
-                    </div>
-                </div></Link>))
-                }
-            </div>
+            {/*<div className='buttonContainer'>*/}
+            {/*    <div className='popularItems'> POPULAR ITEMS</div>*/}
+            {/*    <Link href='/catalog'> <button className='buttonSeeAll'>SEE ALL</button></Link>*/}
+            {/*</div>*/}
+            {/*<div className='items'>*/}
+            {/*    {PopularItems.data && PopularItems.data.map(popular => (<Link href={`/catalog/${popular.id}`} key={popular.id}><div className='Items' style={{ width: "70%" }}><img src={popular.image} style={{ width: "100%" }} alt="" />*/}
+            {/*        <div className='Good'>*/}
+            {/*            <div className='buttonItems'><p>{popular.name}</p>*/}
+            {/*                <div className='cost'><p>{popular.cost}</p></div>*/}
+            {/*                <div className='buttonsFavourites'>*/}
+            {/*                    <FavouriteItem defaultLiked={false}/><SlBasket /></div>*/}
+            {/*            </div>*/}
+            {/*        </div>*/}
+            {/*    </div></Link>))*/}
+            {/*    }*/}
+            {/*</div>*/}
             <div className='aboutUs'>
                 ABOUT US
             </div>

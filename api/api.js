@@ -21,11 +21,10 @@ export const api = createApi({
 	baseQuery: baseQueryWithAuth,
 	endpoints: (builder) => ({
 		getCurrentUserVerify: builder.mutation({
-			query: ({ access, code, body }) => ({
+			query: ({ access, body }) => ({
 				url: `${apiPrefix}/user/current/verify`,
 				method: "POST",
 				body,
-				code,
 				headers: {
 					'Authorization': `Bearer ${access}`
 
@@ -33,13 +32,9 @@ export const api = createApi({
 			})
 		}),
 		getCurrentUser: builder.query({
-			query: ({ access, id, username, email, verified }) => ({
+			query: ({ access }) => ({
 				url: `${apiPrefix}/user/current`,
 				method: "GET",
-				id,
-				username,
-				email,
-				verified,
 				headers: {
 					'Authorization': `Bearer ${access}`
 
@@ -57,12 +52,10 @@ export const api = createApi({
 			})
 		}),
 		registration: builder.mutation({
-			query: ({ body, username, email, password }) => ({
+			query: ({ body }) => ({
 				url: `${apiPrefix}/auth/sign-up`,
 				method: "POST",
 				body: body,
-				username,
-				email,
 				password,
 				headers: {
 					'Content-Type': 'application/json'
@@ -70,66 +63,57 @@ export const api = createApi({
 			})
 		}),
 		login: builder.mutation({
-			query: ({ email, password, body }) => ({
+			query: ({ body }) => ({
 				url: `${apiPrefix}/auth/sign-in`,
 				method: "POST",
 				body: body,
-				email,
-				password,
 				headers: {
 					'Content-Type': 'application/json'
 				}
 			})
 		}),
 		sendRestore: builder.mutation({
-			query: ({ email, password, body }) => ({
+			query: ({ body }) => ({
 				url: `${apiPrefix}/auth/sendRestore`,
 				method: "POST",
 				body,
-				email,
-				password,
 				headers: {
 					'Content-Type': 'application/json'
 				}
 			})
 		}),
 		restore: builder.mutation({
-			query: ({ email, code, body }) => ({
+			query: ({ body }) => ({
 				url: `${apiPrefix}/auth/restore`,
 				method: "POST",
 				body,
-				code,
-				email,
 				headers: {
 					'Content-Type': 'application/json'
 				}
 			})
 		}),
 		refreshToken: builder.mutation({
-			query: ({ refreshToken, body }) => ({
+			query: ({ body }) => ({
 				url: `${apiPrefix}/auth/refresh`,
 				method: "POST",
 				body,
-				refreshToken,
 				headers: {
 					'Content-Type': 'application/json'
 				}
 			})
 		}),
 		userLikes: builder.query({
-			query: ({ body, access }) => ({
+			query: ({ access }) => ({
 				url: `${apiPrefix}/user/likes`,
 				method: "GET",
-				body: body,
 				headers: {
-					'Content-Type': 'application/json',
 					'Authorization': `Bearer ${access}`
 				}
 			})
 		}),
 		addLike: builder.mutation({
 			query: ({ access, body }) => ({
-				url: `${apiPrefix}/user/current/likes`,
+				url: `${apiPrefix}/user/likes`,
 				method: "PUT",
 				body,
 				headers: {

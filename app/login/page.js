@@ -12,10 +12,6 @@ import { useLoginMutation } from "@/api/api";
 
 export default function LogIn() {
 	const router = useRouter()
-	const handleButtonClick = (e) => {
-		e.preventDefault()
-		router.push('/')
-	};
 	const [loginCredentials, setLoginCredentials] = React.useState({
 		email: null,
 		password: null
@@ -59,56 +55,54 @@ export default function LogIn() {
 				<Link href='/registration' style={{textDecoration: 'none', color: 'inherit'}}><p>or sign up for a new
 					account</p></Link>
 			</div>
-			<div className='rectangleLogIn'>
-				<div className='enterYourEmailLogIn'
-					 style={{position: 'absolute', top: '45%', left: '51%', transform: 'translate(-50%, -50%)'}}>
-					<Input status={error.email ? "error" : null}
-						   onChange={(event) => setLoginCredentials((prev) => ({...prev, email: event.target.value}))}
-						   placeholder="Enter your email"
-						   style={{borderColor: '#D8B388', width: '450px', height: '40px'}}/>
-					{error.email && <p style={{color: 'red', marginTop:'0'}}>{error.email}</p>}
-				</div>
-				<div className='enterYourPasswordLogIn'
-					 style={{position: 'absolute', top: '55%', left: '51%', transform: 'translate(-50%, -50%)'}}>
-					<Space direction="vertical" style={{width: '450px', gap: '20px', height: '60px'}}>
-						<Input.Password status={error.password ? "error" : null}
-										onChange={(event) => setLoginCredentials((prev) => ({
-											...prev,
-											password: event.target.value
-										}))}
-										maxLength={10} placeholder="Input password"
-										style={{height: '40px', borderColor: '#D8B388', color: '#333333'}}
-						/>
-						{error.password && <p style={{color: 'red'}}>{error.password}</p>}
-					</Space>
-				</div>
-				<div className='forgetPasswordLogIn'
-					 style={{position: 'absolute', top: '63%', left: '51%', transform: 'translate(-50%, -50%)'}}>
-					<div className='forgotPassword'>Forgot your password?</div>
-					<Link href='/newpassword' style={{textDecoration: 'none', color: 'inherit'}}>
-						<div className='changePasword'>Change it to a new one.</div>
-					</Link>
-				</div>
-				<Button onClick={loginAccount} type="primary" ghost style={{
-					width: '300px',
-					height: '40px',
-					color: 'white',
-					borderColor: '#D8B388',
-					backgroundColor: '#D8B388',
-					position: 'absolute',
-					top: '70%',
-					left: '51%',
-					transform: 'translate(-50%, -50%)'
-				}}>
-					Log in
-				</Button>
-				<div className='logInRegistrationPage'
-					 style={{position: 'absolute', top: '77%', left: '51%', transform: 'translate(-50%, -50%)'}}>
-					<div className='haveAccountLogIn'>
-						You don't have an account?
+			<div style={{display: "flex", justifyContent: "center", marginTop: 50}}>
+				<div className='rectangleLogIn'>
+					<div className='enterYourEmailLogIn'>
+						<Input status={error.email ? "error" : null}
+							   onChange={(event) => setLoginCredentials((prev) => ({
+								   ...prev,
+								   email: event.target.value
+							   }))}
+							   placeholder="Enter your email"
+							   style={{borderColor: '#D8B388', width: '450px', height: '40px'}}/>
+						{error.email && <p style={{color: 'red', marginTop: '0'}}>{error.email}</p>}
 					</div>
-					<div className='logInText'>
-						<Link href='/registration' style={{textDecoration: 'none', color: 'inherit'}}>Sign up.</Link>
+					<div className='enterYourPasswordLogIn'>
+						<Space direction="vertical" style={{width: '450px', gap: '20px', height: '60px'}}>
+							<Input.Password status={error.password ? "error" : null}
+											onChange={(event) => setLoginCredentials((prev) => ({
+												...prev,
+												password: event.target.value
+											}))}
+											maxLength={10} placeholder="Input password"
+											style={{height: '40px', borderColor: '#D8B388', color: '#333333'}}
+							/>
+							{error.password && <p style={{color: 'red'}}>{error.password}</p>}
+						</Space>
+					</div>
+					<div className='forgetPasswordLogIn'>
+						<div className='forgotPassword'>Forgot your password?</div>
+						<Link href='/newpassword' style={{textDecoration: 'none', color: 'inherit'}}>
+							<div className='changePasword'>Change it to a new one.</div>
+						</Link>
+					</div>
+					<Button onClick={loginAccount} type="primary" ghost style={{
+						width: '300px',
+						height: '40px',
+						color: 'white',
+						borderColor: '#D8B388',
+						backgroundColor: '#D8B388'
+					}}>
+						Log in
+					</Button>
+					<div className='logInRegistrationPage'>
+						<div className='haveAccountLogIn'>
+							You don't have an account?
+						</div>
+						<div className='logInText'>
+							<Link href='/registration' style={{textDecoration: 'none', color: 'inherit'}}>Sign
+								up.</Link>
+						</div>
 					</div>
 				</div>
 			</div>

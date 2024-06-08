@@ -17,11 +17,11 @@ export default function Catalog({ params }) {
     const { data, error, isLoading } = useGetSpecificCategoryQuery({ categoryId: params.categoryId })
     return (
         <div>
-            <div className='buttons'>
-                <p>cups</p>
-                <p>pillows</p>
-                <p>plaids</p>
-            </div>
+            {/*<div className='buttons'>*/}
+            {/*    <p>cups</p>*/}
+            {/*    <p>pillows</p>*/}
+            {/*    <p>plaids</p>*/}
+            {/*</div>*/}
             {isLoading ? <div style={{ display: "flex", justifyContent: "center", width: "100%", minHeight: "65svh" }}><Spin /></div>
                 : <div>
                     <div className='textCandles'>
