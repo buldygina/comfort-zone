@@ -1,45 +1,49 @@
 'use client'
+import { useAddLikeMutation } from '@/api/api';
 import React from 'react';
+import { useCookies } from 'react-cookie';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
-import {useUserLikesPutQuery} from "@/api/api";
-import {useCookies} from "react-cookie";
-const FavouriteItem = ({ defaultLiked, style, size }) => {
+import { message } from 'antd';
+
+const FavouriteItem = ({ defaultLiked, style, size, itemId, isLikedBefore = false }) => {
+    const [messageApi] = message.useMessage()
     const [isLiked, setIsLiked] = React.useState(defaultLiked);
-    const [value, setValue] = React.useState();
-    const [addToFavorites] = useUserLikesPutQuery();
-    const [userLikeId, setUserLikeId] = React.useState(null);
-    const [likeItem, setLikeItem] = React.useState('');
-    const [cookies, setCookie, removeCookie] = useCookies()
-    const createReview = async () => {
-        if (!userLikeId) {
-            if (!likeItem || !value) return
-            const response = await createReviewReq({
-                access: cookies.access, body: {
-                  itemId:params.id
-                }
-            })
-            if (!response.error) location.reload()
-        else {
-                if (!likeItem || !value) return
-                const response = await updateReview({
-                    access: cookies.access, body: {
-                        reviewId: userReviewId,
-                        text: commentText,
-                        estimation: value2
-                    }
-                })
-                if (!response.error) location.reload()
+    const [cookies] = useCookies()
+    const [addLike] = useAddLikeMutation()
+
+    const handleLikeClick = async () => {
+        messageApi.open([{
+            key: "likeStatus",
+            type: "loading",
+            content: "loading...."
+        }])
+        if (!isLikedBefore) {
+            const response = await addLike({ body: { itemId }, access: cookies.access })
+            if (response.error) messageApi.open([{
+                key: "likeStatus",
+                type: "error",
+                content: "You must be signed in",
+                duration: 2
+            }])
+            else {
+                messageApi.open([{
+                    key: "likeStatus",
+                    type: "success",
+                    content: "Added to favorites!",
+                    duration: 2
+
+                }])
+                setIsLiked(true);
             }
         }
-    const handleLikeClick = () => {
-        setIsLiked(!isLiked);
+
     };
 
     return (
         <div className="favourite-item" onClick={handleLikeClick} style={style}>
-            {isLiked ? <AiFillHeart style={{ color: 'red' }} size={size} /> : <AiOutlineHeart size={size}/>}
+            {isLiked ? <AiFillHeart style={{ color: 'red' }} size={size} /> : <AiOutlineHeart size={size} />}
         </div>
     );
 }
 
-export default FavouriteItem;
+export default FavouriteItem

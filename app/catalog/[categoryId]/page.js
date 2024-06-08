@@ -1,16 +1,14 @@
-'use client'
+'use client';
 import React from 'react';
-import Navbar from "/components/Navbar";
 import {VscAccount} from "react-icons/vsc";
 import {AiOutlineClose, AiOutlineHeart, AiOutlineUnorderedList} from "react-icons/ai";
 import {SlBasket} from "react-icons/sl";
-import '@/app/catalog/catalog.css'
+import '@/app/catalog/[categoryId]/catalog.css'
 import {AiOutlineArrowRight} from "react-icons/ai";
 import Link from "next/link";
 import {CgCloseO} from "react-icons/cg";
 import {useRouter} from "next/navigation";
 import FavouriteItem from "@/components/FavouriteItem";
-import {useCookies} from "react-cookie";
 import {useGetSpecificCategoryQuery} from "@/api/api";
 
 const colors = ["grey", "grey", "grey"];

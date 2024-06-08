@@ -21,7 +21,7 @@ export const api = createApi({
 	baseQuery: baseQueryWithAuth,
 	endpoints: (builder) => ({
 		getCurrentUserVerify: builder.mutation({
-			query: ({access, code, body}) => ({
+			query: ({ access, code, body }) => ({
 				url: `${apiPrefix}/user/current/verify`,
 				method: "POST",
 				body,
@@ -33,7 +33,7 @@ export const api = createApi({
 			})
 		}),
 		getCurrentUser: builder.query({
-			query: ({access, id, username, email, verified}) => ({
+			query: ({ access, id, username, email, verified }) => ({
 				url: `${apiPrefix}/user/current`,
 				method: "GET",
 				id,
@@ -47,7 +47,7 @@ export const api = createApi({
 			})
 		}),
 		getSendVerifyUser: builder.query({
-			query: ({access}) => ({
+			query: ({ access }) => ({
 				url: `${apiPrefix}/user/current/sendVerify`,
 				method: "GET",
 				headers: {
@@ -57,7 +57,7 @@ export const api = createApi({
 			})
 		}),
 		registration: builder.mutation({
-			query: ({body, username, email, password}) => ({
+			query: ({ body, username, email, password }) => ({
 				url: `${apiPrefix}/auth/sign-up`,
 				method: "POST",
 				body: body,
@@ -70,7 +70,7 @@ export const api = createApi({
 			})
 		}),
 		login: builder.mutation({
-			query: ({email, password, body}) => ({
+			query: ({ email, password, body }) => ({
 				url: `${apiPrefix}/auth/sign-in`,
 				method: "POST",
 				body: body,
@@ -82,7 +82,7 @@ export const api = createApi({
 			})
 		}),
 		sendRestore: builder.mutation({
-			query: ({email, password, body}) => ({
+			query: ({ email, password, body }) => ({
 				url: `${apiPrefix}/auth/sendRestore`,
 				method: "POST",
 				body,
@@ -94,7 +94,7 @@ export const api = createApi({
 			})
 		}),
 		restore: builder.mutation({
-			query: ({email, code, body}) => ({
+			query: ({ email, code, body }) => ({
 				url: `${apiPrefix}/auth/restore`,
 				method: "POST",
 				body,
@@ -106,7 +106,7 @@ export const api = createApi({
 			})
 		}),
 		refreshToken: builder.mutation({
-			query: ({refreshToken, body}) => ({
+			query: ({ refreshToken, body }) => ({
 				url: `${apiPrefix}/auth/refresh`,
 				method: "POST",
 				body,
@@ -117,7 +117,7 @@ export const api = createApi({
 			})
 		}),
 		userLikes: builder.query({
-			query: ({body, access}) => ({
+			query: ({ body, access }) => ({
 				url: `${apiPrefix}/user/likes`,
 				method: "GET",
 				body: body,
@@ -127,16 +127,17 @@ export const api = createApi({
 				}
 			})
 		}),
-		userLikesPut: builder.mutation({
-			query: ({access}) => ({
-				url: `${apiPrefix}/user/current/sendVerify`,
+		addLike: builder.mutation({
+			query: ({ access, body }) => ({
+				url: `${apiPrefix}/user/current/likes`,
 				method: "PUT",
+				body,
 				headers: {
 					'Authorization': `Bearer ${access}`
 				}
 			})
 		}),
-		userLikesPutItemId: builder.mutation({
+		removeLike: builder.mutation({
 			query: () => ({
 				url: `${apiPrefix}/user/likes/{itemId}`,
 				method: "DELETE",
@@ -146,7 +147,7 @@ export const api = createApi({
 			})
 		}),
 		userItems: builder.query({
-			query: ({itemId}) => ({
+			query: ({ itemId }) => ({
 				url: `${apiPrefix}/items/${itemId}`,
 				method: "GET",
 				headers: {
@@ -173,7 +174,7 @@ export const api = createApi({
 			})
 		}),
 		getSpecificCategory: builder.query({
-			query: ({categoryId}) => ({
+			query: ({ categoryId }) => ({
 				url: `${apiPrefix}/categories/${categoryId}`,
 				method: "GET",
 				headers: {
@@ -186,15 +187,15 @@ export const api = createApi({
 export const {
 	useGetCurrentUserVerifyMutation,
 	useGetCurrentUserQuery,
-	useGetSendVerifyUser,
+	useGetSendVerifyUserQuery,
 	useRegistrationMutation,
 	useLoginMutation,
 	useSendRestoreMutation,
 	useRestoreMutation,
 	useRefreshTokenMutation,
 	useUserLikesQuery,
-	useUserLikesPutQuery,
-	useUserLikesPutItemIdQuery,
+	useAddLikeMutation,
+	useRemoveLikeMutation,
 	useUserItemsQuery,
 	useItemsPopularQuery,
 	useCategoriesQuery,
