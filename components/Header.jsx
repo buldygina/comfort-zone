@@ -7,6 +7,7 @@ import Link from "next/link";
 import React from "react"
 import { usePathname, useRouter } from "next/navigation";
 import { IoArrowBackOutline } from "react-icons/io5";
+import LikesMenu from "@/components/LikesMenu";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -63,27 +64,7 @@ const Header = () => {
                 <Link href='/account' className='no-underline'><VscAccount size={27} /></Link>
                 <div className='hamburgerMenuContainer'>
                     {isMenuOpen &&
-                        <div className="menuHeart">
-                            <p>Favourites</p>
-                            <div className='hamburgerMenuFavourites'>
-                                <img src={"/3 свеча.png"} style={{ width: '15%', height: "15%", borderRadius: '25px' }}
-                                    alt="" />
-                                <img src={"/4 свеча.png"} style={{ width: '15%', height: "15%", borderRadius: '25px' }}
-                                    alt="" />
-                                <div className='favouritesText'>
-                                    <p>CANDLE "WARM"</p>
-                                    <p>CANDLE "PINK SET"</p>
-                                </div>
-                                <div className='descriptionOfItems'>
-                                    <p>22$</p>
-                                    <p>19$</p>
-                                    <div className='deleteItemFavourites'>
-                                        <CgCloseO size={27} />
-                                        <CgCloseO size={27} />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <LikesMenu/>
                     }
                     <div className='hamburgerMenuHeart' onClick={hamburgerMenu}>
                         {isMenuOpen ? <AiOutlineClose size={30} /> : <AiOutlineHeart size={30} />}
