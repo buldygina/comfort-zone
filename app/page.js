@@ -16,47 +16,8 @@ import {useCategoriesQuery, useGetSpecificCategoryQuery, useItemsPopularQuery} f
 const colors = ["grey", "grey", "grey"];
 const delay = 5000;
 export default function Home() {
-    const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-    const [isMenuOpen2, setIsMenuOpen2 ] = React.useState(false);
-    const hamburgerMenu2 = () => {
-        setIsMenuOpen2(!isMenuOpen2);
-    };
-    React.useEffect(() => {
-        const body = document.body;
-        if (isMenuOpen2) {
-            body.classList.add('scroll-lock2');
-        } else {
-            body.classList.remove('scroll-lock2');
-        }
-
-                return () => {
-            body.classList.remove('scroll-lock2');
-        };
-    }, [isMenuOpen2]);
-    const [index2, setIndex2] = React.useState(0);
-    const timeoutRef2 = React.useRef(null);
-    const [isOpen2, setIsOpen2] = React.useState(false);
-
-    const hamburgerMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
-    React.useEffect(() => {
-        const body = document.body;
-        if (isMenuOpen) {
-            body.classList.add('scroll-lock');
-        } else {
-            body.classList.remove('scroll-lock');
-        }
-
-        // Очистка при размонтировании компонента
-        return () => {
-            body.classList.remove('scroll-lock');
-        };
-    }, [isMenuOpen]);
-
     const [index, setIndex] = React.useState(0);
     const timeoutRef = React.useRef(null);
-    const [isOpen, setIsOpen] = React.useState(false);
 
     function resetTimeout() {
         if (timeoutRef.current) {
@@ -159,15 +120,6 @@ export default function Home() {
                         </Map>
                     </YMaps>
                 </div>
-            </div>
-            <div className='footer'>
-                <div className='footerText'>
-                    <Link href={"/shoppinginformation#Stores"} style={{textDecoration: "none", color: "inherit"}}><p>stores</p></Link>
-                    <Link href={"/shoppinginformation#Guarantee"} style={{textDecoration: "none", color: "inherit"}}><p>guarantee</p></Link>
-                        <Link href={"/shoppinginformation#Delivery"} style={{textDecoration: "none", color: "inherit"}}><p>delivery</p></Link>
-                            <Link href={"/shoppinginformation#Work time"} style={{textDecoration: "none", color: "inherit"}}><p>work time</p></Link>
-                </div>
-                <p className="email">comfortzone@mail.ru</p>
             </div>
         </div>
 

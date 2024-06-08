@@ -36,7 +36,7 @@ export default function Catalog({ params }) {
                     <div className='imageCandles'>
                         <img src={data.image} style={{ width: "20%" }} alt="" />
                     </div>
-                    <div className='candleCatalog'><p>{data.name} CATALOG</p></div>
+                    <div className='candleCatalog'><p style={{textTransform: "uppercase"}}>{data.name} CATALOG</p></div>
                     <div className='items'>
                         {data?.items.length > 0 && data.items.map(item => <Link
                             href={`/catalog/${params.id}/items/${item.id}`} key={item.id}>

@@ -1,7 +1,16 @@
+"use client"
 import Link from "next/link";
 import React from "react";
+import { usePathname } from "next/navigation";
 
 const Footer = () => {
+	const [hide, setHide] = React.useState(false)
+	const pathname = usePathname()
+	React.useEffect(() => {
+		if (["/login", "/register", "/account"].includes(pathname)) setHide(true)
+		else setHide(false)
+	}, [pathname])
+	if (hide) return null
 	return (
 		<div className='footer'>
 			<div className='footerText'>
