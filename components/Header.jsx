@@ -59,6 +59,7 @@ const Header = () => {
 			setMenuOrButton(true)
 		}
 		if (["/login", "/register", "/account"].includes(pathname)) setHide(true)
+		else if (pathname.includes("items")) setHide(true)
 		else setHide(false)
 
 	}, [pathname])

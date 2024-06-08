@@ -1,19 +1,13 @@
-'use client';
-import React from 'react';
-import { VscAccount } from "react-icons/vsc";
-import { AiOutlineClose, AiOutlineHeart, AiOutlineUnorderedList } from "react-icons/ai";
+'use client';;
 import { SlBasket } from "react-icons/sl";
 import '@/app/catalog/[categoryId]/catalog.css'
 import { AiOutlineArrowRight } from "react-icons/ai";
 import Link from "next/link";
-import { CgCloseO } from "react-icons/cg";
 import { useRouter } from "next/navigation";
 import FavouriteItem from "@/components/FavouriteItem";
 import { useGetSpecificCategoryQuery } from "@/api/api";
 import { Spin } from "antd";
 
-const colors = ["grey", "grey", "grey"];
-const delay = 5000;
 export default function Catalog({ params }) {
     const router = useRouter()
     const handleButtonClick = (e) => {
@@ -28,7 +22,7 @@ export default function Catalog({ params }) {
                 <p>pillows</p>
                 <p>plaids</p>
             </div>
-            {isLoading ? <div style={{ display: "flex", justifyContent: "center", width: "100%" }}><Spin /></div>
+            {isLoading ? <div style={{ display: "flex", justifyContent: "center", width: "100%", minHeight: "65svh" }}><Spin /></div>
                 : <div>
                     <div className='textCandles'>
                         <p>{data.description}</p>

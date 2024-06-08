@@ -1,37 +1,40 @@
-.buttonClose{
-    position:absolute;
+.buttonClose {
+    position: absolute;
     left: 20px;
-    top:20px;
+    top: 20px;
     cursor: pointer;
 }
+
 .fifthItem {
-   padding-left: 100px;
+    padding-left: 100px;
     padding-top: 10px;
+
 }
-.textFifth{
+
+.textFifth {
     font-family: Raleway;
     font-size: 30px;
     font-weight: bold;
 }
-.cost{
+
+.cost {
     font-family: Raleway;
     font-size: 30px;
     font-weight: bold;
 }
-.buttonHeart{
+
+.buttonHeart {
     display: flex;
     justify-content: right;
     align-items: center;
     gap: 40px;
-    position: relative;
-    bottom:530px;
-    padding-right: 500px;
 }
-.itemsText{
+
+.itemsText {
     font-family: Raleway;
     font-size: 25px;
-    position: relative;
-    bottom: 500px;
-    padding-right: 100px;
-    padding-left: 800px;
+}
+
+.contentContainer {
+    display: flex;
 }
