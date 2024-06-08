@@ -181,6 +181,15 @@ export const api = createApi({
 					'Content-Type': 'application/json'
 				}
 			})
+		}),
+		promo: builder.mutation({
+			query: ({access}) => ({
+				url: `${apiPrefix}/user/promo`,
+				method: "GET",
+				headers: {
+					'Authorization': `Bearer ${access}`
+				}
+			})
 		})
 	})
 })
@@ -199,7 +208,8 @@ export const {
 	useUserItemsQuery,
 	useItemsPopularQuery,
 	useCategoriesQuery,
-	useGetSpecificCategoryQuery
+	useGetSpecificCategoryQuery,
+	usePromoMutation
 } = api
 
 

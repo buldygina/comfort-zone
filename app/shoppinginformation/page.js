@@ -8,6 +8,9 @@ import { AiOutlineClose, AiOutlineHeart } from "react-icons/ai";
 import { VscAccount } from "react-icons/vsc";
 import { SlBasket } from "react-icons/sl";
 import Link from "next/link";
+import { message } from 'antd';
+import {usePromoMutation, useRemoveLikeMutation} from "@/api/api";
+import {useCookies} from "react-cookie";
 export default function ShoppingInformation() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
     const hamburgerMenu = () => {
@@ -30,6 +33,34 @@ export default function ShoppingInformation() {
     const [index, setIndex] = React.useState(0);
     const timeoutRef = React.useRef(null);
     const [isOpen, setIsOpen] = React.useState(false);
+
+    const [messageApi] = message.useMessage();
+    const [cookies] = useCookies();
+    const [promo] = usePromoMutation()
+    const getDiscount = async () =>{
+        messageApi.open([{
+            key: "getPromo",
+            type: "loading",
+            content: "loading...."
+        }])
+        const response = await promo({ access: cookies.access })
+        if (response.error) messageApi.open([{
+            key: "getPromo",
+            type: "error",
+            content: "You must be signed in",
+            duration: 2
+        }])
+        else {
+            messageApi.open([{
+                key: "getPromo",
+                type: "success",
+                content: "A discount has been sent to email",
+                duration: 2
+
+            }])
+        }
+    }
+
     return (
         <div>
             <div className='shoppingInformationText'>
@@ -43,7 +74,7 @@ export default function ShoppingInformation() {
                 <div className='salesCardText'>
                     Get a discount on your first order. The discount will be sent to your email.
                 </div>
-                <Button type="primary" ghost style={{ width: '200px', height: '50px', color: 'white', borderColor: '#D8B388', backgroundColor: '#D8B388', position: 'absolute', top: '132%', left: '51%', transform: 'translate(-50%, -50%)', fontFamily: 'Raleway', fontSize: '20px' }}>
+                <Button onClick={getDiscount} type="primary" ghost style={{ width: '200px', height: '50px', color: 'white', borderColor: '#D8B388', backgroundColor: '#D8B388', position: 'absolute', top: '132%', left: '51%', transform: 'translate(-50%, -50%)', fontFamily: 'Raleway', fontSize: '20px' }}>
                     Get a discount
                 </Button>
             </div>
